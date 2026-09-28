@@ -1,0 +1,52 @@
+import { useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router';
+
+const NAV = [
+  ['/products.html', 'Products'],
+  ['/technology.html', 'How we build'],
+  ['/partners.html', 'Partners'],
+  ['/about.html', 'About'],
+  ['/insights.html', 'Insights'],
+  ['/careers.html', 'Careers'],
+];
+
+export default function Header() {
+  const { pathname } = useLocation();
+  // The menu remembers which page it was opened on, so navigating to any
+  // other page closes it without an extra effect/render.
+  const [openOn, setOpenOn] = useState(null);
+  const open = openOn === pathname;
+
+  // NavLink sets aria-current="page" on the active link, in the pre-rendered
+  // HTML as well. The className function stops it adding an "active" class.
+  return (
+    <header className="masthead">
+      <div className="wrap masthead-in">
+        <Link className="brand" to="/">
+          <span className="mark" aria-hidden="true" />
+          Afra Ventures
+          <span className="sub">Puducherry</span>
+        </Link>
+        <button
+          className="navtoggle"
+          id="navtoggle"
+          aria-expanded={open}
+          aria-controls="nav"
+          onClick={() => setOpenOn(open ? null : pathname)}
+        >
+          {open ? 'CLOSE' : 'MENU'}
+        </button>
+        <nav className={open ? 'nav open' : 'nav'} id="nav" aria-label="Main">
+          {NAV.map(([to, label]) => (
+            <NavLink key={to} to={to} end className={() => undefined}>
+              {label}
+            </NavLink>
+          ))}
+          <NavLink to="/contact.html" end className={() => 'btn btn-primary'}>
+            Contact
+          </NavLink>
+        </nav>
+      </div>
+    </header>
+  );
+}

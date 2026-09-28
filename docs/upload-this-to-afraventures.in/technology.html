@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How we build | Afra Ventures</title>
+<meta name="description" content="The stack and engineering practice behind Afra Ventures products: React and Node, PostgreSQL, multi-tenant architecture, workflow automation, and AI used only where it measurably helps.">
+<link rel="canonical" href="https://afraventures.in/technology.html">
+<meta name="theme-color" content="#2f36a8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0d1a" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="Afra Ventures">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How we build | Afra Ventures">
+<meta property="og:description" content="The stack and engineering practice behind Afra Ventures products: React and Node, PostgreSQL, multi-tenant architecture, workflow automation, and AI used only where it measurably helps.">
+<meta property="og:url" content="https://afraventures.in/technology.html">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How we build | Afra Ventures">
+<meta name="twitter:description" content="The stack and engineering practice behind Afra Ventures products: React and Node, PostgreSQL, multi-tenant architecture, workflow automation, and AI used only where it measurably helps.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","@id":"https://afraventures.in/#organization","name":"Afra Ventures","legalName":"Afra Ventures Private Limited","url":"https://afraventures.in/","email":"hello@afraventures.in","telephone":"+919944940051","foundingDate":"2026-09-12","description":"Afra Ventures is a women-led software product company in Puducherry, India, building SaaS platforms and AI-assisted tools for gyms, colleges, recruiters and small businesses.","identifier":{"@type":"PropertyValue","propertyID":"CIN","value":"U62011PY2026PTC009819"},"address":{"@type":"PostalAddress","streetAddress":"78 Lenin Street, Kosapalayam","addressLocality":"Puducherry","addressRegion":"Puducherry","postalCode":"605013","addressCountry":"IN"},"areaServed":["IN"],"knowsAbout":["Software as a service","Gym management software","Campus placement software","Skill assessment","WhatsApp business automation","Business automation","Artificial intelligence"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://afraventures.in/"},{"@type":"ListItem","position":2,"name":"Technology","item":"https://afraventures.in/technology.html"}]}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"></span>
+      Afra Ventures
+      <span class="sub">Puducherry</span>
+    </a>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="nav">MENU</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="products.html">Products</a>
+      <a href="technology.html">How we build</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a class="btn btn-primary" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">How we build</p>
+      <h1>Ordinary technology, applied carefully.</h1>
+      <p class="lede">
+        There is nothing exotic in our stack. What matters is that a twelve-person team can
+        run several products at once without any of them rotting.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel">
+        <div class="panel-head"><span>Stack</span><span>Across products</span></div>
+        <dl class="readout">
+          <div><dt>Interface</dt><dd>React</dd></div>
+          <div><dt>Services</dt><dd>Node and Express</dd></div>
+          <div><dt>Data</dt><dd>PostgreSQL and MongoDB, chosen per product</dd></div>
+          <div><dt>Automation</dt><dd>Workflow engine for scheduled and event-driven jobs</dd></div>
+          <div><dt>Messaging</dt><dd>WhatsApp Business Cloud API</dd></div>
+          <div><dt>Payments</dt><dd>Razorpay, with webhook reconciliation</dd></div>
+          <div><dt>Hosting</dt><dd>Managed virtual servers, India region</dd></div>
+        </dl>
+      </div>
+
+      <div class="stack">
+        <h3>Why so plain</h3>
+        <div class="prose">
+          <p>
+            Our customers are gyms, colleges and small firms. They need software that is up
+            on a Tuesday morning and that somebody can fix the same day when it is not.
+            That rules out anything we cannot debug ourselves at eleven at night.
+          </p>
+          <p>
+            So we keep to a small set of well-understood tools, run them properly, and spend
+            our inventiveness on the part the customer actually sees &mdash; the order of the
+            fields, the default on the form, the list that tells the desk who to call today.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">Architecture</p>
+      <h2>Four rules we do not bend.</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h4>Multi-tenant from the first commit</h4>
+        <p>
+          One deployment serves every customer of a product, with data separated by tenant.
+          Retrofitting this later is close to a rewrite, so we never start without it.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Permission checks live in the API</h4>
+        <p>
+          Hiding a button is presentation, not security. Every role and permission rule is
+          enforced on the server, and we treat any gap between the two as a defect to be
+          fixed rather than documented.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Money is reconciled, not assumed</h4>
+        <p>
+          Payment status comes from the gateway's webhook and is checked against our own
+          records. A record that says paid means the money arrived.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Automation is observable</h4>
+        <p>
+          Scheduled jobs, reminders and message sends are all visible as runs with outcomes.
+          A reminder that silently failed to send is worse than no reminder at all.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">Artificial intelligence</p>
+      <h2>Where we use it, and where we refuse to.</h2>
+      <p class="prose">
+        We use language models for a small number of jobs that are genuinely tedious, and
+        we keep a person between the model and any consequence.
+      </p>
+    </div>
+    <div class="grid grid-2">
+      <div class="stack">
+        <h4 style="color:var(--ok)">Where it earns its place</h4>
+        <ul class="ticks">
+          <li><strong>Parsing messy input</strong> &mdash; a customer message typed half in Tamil and half in English becomes a clear request</li>
+          <li><strong>Drafting</strong> &mdash; a workout plan or a customer reply that a human can edit and send</li>
+          <li><strong>Matching</strong> &mdash; narrowing a candidate pool to a shortlist a recruiter can read in a sitting</li>
+          <li><strong>Summarising</strong> &mdash; turning a week of records into the three things somebody needs to act on</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h4 style="color:var(--accent)">Where we leave it out</h4>
+        <ul class="ticks">
+          <li><strong>Anything a customer receives unreviewed</strong> &mdash; a trainer or a recruiter signs off first</li>
+          <li><strong>Health and money advice</strong> &mdash; a diet plan is a draft for a professional, and tax stays with your accountant</li>
+          <li><strong>Hiring decisions</strong> &mdash; the software narrows a list; a person chooses</li>
+          <li><strong>A chat box for its own sake</strong> &mdash; if a well-placed list does the job, we build the list</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">Data and security</p>
+      <h2>How we treat your records.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Your data is yours</h4>
+        <p>Exportable on request, in a format you can open, at any point &mdash; including during a free pilot.</p>
+      </div>
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Hosted in India</h4>
+        <p>Customer records for our products sit on servers in the India region.</p>
+      </div>
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Access is scoped</h4>
+        <p>Staff access is limited to what a role needs. Support access to a customer tenant is requested, not assumed.</p>
+      </div>
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Encrypted in transit</h4>
+        <p>Everything runs over HTTPS. Payment details are handled by the gateway and never stored by us.</p>
+      </div>
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Backups that are restored</h4>
+        <p>Automated backups, and restores that get tested rather than assumed to work.</p>
+      </div>
+      <div class="feat">
+        <div class="rule"></div>
+        <h4>Deletion means deletion</h4>
+        <p>Ask us to remove your data when you leave and we remove it, then confirm in writing.</p>
+      </div>
+    </div>
+    <p class="small muted">
+      Full detail on collection, retention and deletion is in our <a href="privacy.html">privacy policy</a>.
+    </p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <p class="eyebrow">Research direction</p>
+      <h2>What we are reading about next.</h2>
+      <p class="prose">
+        One line of work has no product attached yet and we are not going to pretend
+        otherwise: <strong>Tamil-language interfaces for citizen and institutional
+        services</strong>. Most people in this region would use a public service tool in
+        Tamil if one existed and behaved sensibly on a cheap phone. We are exploring what
+        that takes. If it becomes a product it will appear on the products page with a
+        stage label like everything else.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band-tight cta-band">
+  <div class="wrap cta-inner">
+    <div class="stack-sm">
+      <h3>Want something built this way?</h3>
+      <p class="muted small">We take on custom product engineering alongside our own products.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="contact.html?topic=custom">Describe your project</a>
+      <a class="btn btn-ghost" href="careers.html">Or come and build with us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:.75rem">
+          <span class="mark" aria-hidden="true"></span>
+          Afra Ventures
+        </a>
+        <p class="small muted" style="max-width:34ch">
+          A women-led software product company in Puducherry, building tools for the
+          businesses and institutions around us.
+        </p>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="gymdesk.html">GymDesk</a></li>
+          <li><a href="nera.html">Nera</a></li>
+          <li><a href="velai-vaaippu.html">Velai Vaaippu</a></li>
+          <li><a href="products.html">All products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="technology.html">How we build</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Reach us</h5>
+        <ul>
+          <li><a href="mailto:hello@afraventures.in">hello@afraventures.in</a></li>
+          <li><a href="tel:+919944940051">+91 99449 40051</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+        <p class="small muted" style="margin-top:.85rem">
+          78 Lenin Street, Kosapalayam<br>Puducherry 605013<br>India
+        </p>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; <span data-year>2026</span> Afra Ventures Private Limited</span>
+      <span>CIN U62011PY2026PTC009819</span>
+      <span>
+        <a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+        <a href="terms.html">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
