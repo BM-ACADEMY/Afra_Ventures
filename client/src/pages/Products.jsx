@@ -4,9 +4,10 @@ import { Card } from '../components/Card.jsx';
 import Chip from '../components/Chip.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import Seo from '../components/Seo.jsx';
+import StageFilter from '../components/StageFilter.jsx';
 import { breadcrumb } from '../lib/jsonld.js';
 
-// Product rows. <StageFilter> (Task 8.3) filters these by stage.
+// Product rows, filtered by stage in <StageFilter>.
 const PRODUCTS = [
   {
     stage: 'beta',
@@ -54,38 +55,7 @@ export default function Products() {
             on the phone.
           </p>
         </div>
-        <div className="btn-row" id="stagefilter" role="group" aria-label="Filter products by stage">
-          <button type="button" className="btn btn-primary" data-stage="all" aria-pressed="true">
-            All
-          </button>
-          {" "}
-          <button type="button" className="btn btn-ghost" data-stage="live" aria-pressed="false">
-            Live
-          </button>
-          {" "}
-          <button type="button" className="btn btn-ghost" data-stage="beta" aria-pressed="false">
-            Beta
-          </button>
-          {" "}
-          <button type="button" className="btn btn-ghost" data-stage="dev" aria-pressed="false">
-            In development
-          </button>
-        </div>
-        <div className="ledger">
-          {PRODUCTS.map(p => (
-            <Link key={p.to} className="ledger-row" to={p.to} data-stage-row={p.stage}>
-              <span className="idx">{p.idx}</span>
-              <div className="stack-sm" style={{ alignItems: 'flex-start' }}>
-                <h3>{p.name}</h3>
-                <Chip stage={p.stage}>{p.chip}</Chip>
-              </div>
-              <p className="small muted">{p.text}</p>
-              <span className="tail">
-                <span className="arrow" aria-hidden="true">→</span>
-              </span>
-            </Link>
-          ))}
-        </div>
+        <StageFilter rows={PRODUCTS} />
       </Band>
       <Band alt wrap="stack-lg">
         <div className="stack">

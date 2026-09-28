@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
 import Band from '../components/Band.jsx';
 import { Card, Panel } from '../components/Card.jsx';
+import EnquiryForm from '../components/EnquiryForm.jsx';
 import Notice from '../components/Notice.jsx';
 import Seo from '../components/Seo.jsx';
 import { SITE } from '../config/site.js';
@@ -28,56 +28,7 @@ export default function Contact() {
           </p>
         </div>
         <div className="grid grid-2" style={{ alignItems: 'start' }}>
-          {/* <EnquiryForm> slot (Module 9): this form becomes <EnquiryForm send="email">,
-              which adds submit handling, honest status messages and the spam honeypot. */}
-          <form className="card" data-enquiry="" data-send="email" style={{ gap: '1.1rem' }}>
-            <div className="field">
-              <label htmlFor="f-name">Your name</label>
-              {" "}
-              <input type="text" id="f-name" name="name" autoComplete="name" required />
-            </div>
-            <div className="field">
-              <label htmlFor="f-org">Organisation</label>
-              {" "}
-              <input type="text" id="f-org" name="org" autoComplete="organization" />
-            </div>
-            <div className="field">
-              <label htmlFor="f-email">Email</label>
-              {" "}
-              <input type="email" id="f-email" name="email" autoComplete="email" required />
-            </div>
-            <div className="field">
-              <label htmlFor="f-phone">Phone or WhatsApp</label>
-              {" "}
-              <input type="tel" id="f-phone" name="phone" autoComplete="tel" />
-            </div>
-            <div className="field">
-              <label htmlFor="f-topic">What is this about</label>
-              <select id="f-topic" name="topic" defaultValue="other">
-                <option value="gymdesk">GymDesk pilot</option>
-                <option value="colleges">College or placement cell</option>
-                <option value="hiring">Hiring and recruitment</option>
-                <option value="nera">Nera — WhatsApp automation</option>
-                <option value="custom">Custom software</option>
-                <option value="institutional">Institutional or public sector</option>
-                <option value="careers">A job with you</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="f-message">What is going wrong today</label>
-              <textarea id="f-message" name="message" placeholder="The more specific, the more useful our first reply will be." />
-            </div>
-            <button className="btn btn-primary" type="submit" style={{ alignSelf: 'flex-start' }}>
-              Send enquiry
-            </button>
-            <p className="small" data-status="" role="status" aria-live="polite" />
-            <p className="small muted">
-              We use what you send here only to reply to you. See our{" "}
-              <Link to="/privacy.html">privacy policy</Link>
-              .
-            </p>
-          </form>
+          <EnquiryForm send="email" />
           <div className="stack-lg">
             <Panel head={["Direct", "Mon–Sat"]}>
               <dl className="readout">
