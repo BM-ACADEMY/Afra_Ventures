@@ -64,8 +64,6 @@ export const routes = [
     element: <Layout />,
     children: [
       ...pageRoutes,
-      // Apache can serve the home page as /index.html as well as /.
-      { path: '/index.html', element: <Home /> },
       // 404.html is served at any missing URL; render the same page there.
       { path: '*', element: <NotFound /> },
     ],

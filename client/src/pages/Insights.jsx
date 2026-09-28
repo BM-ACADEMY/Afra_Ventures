@@ -26,7 +26,7 @@ export default function Insights() {
           </p>
         </div>
         <div style={{ borderTop: '1px solid var(--rule)' }}>
-          <Link className="post-link" to="/gym-membership-renewals.html">
+          <Link className="post-link" to="/gym-membership-renewals">
             <div className="stack-sm">
               <span className="idx">17 Sep 2026</span>
               {" "}
@@ -42,7 +42,7 @@ export default function Insights() {
             </div>
           </Link>
           {" "}
-          <Link className="post-link" to="/college-placement-software.html">
+          <Link className="post-link" to="/college-placement-software">
             <div className="stack-sm">
               <span className="idx">17 Sep 2026</span>
               {" "}
@@ -57,7 +57,7 @@ export default function Insights() {
             </div>
           </Link>
           {" "}
-          <Link className="post-link" to="/multi-brand-bookkeeping.html">
+          <Link className="post-link" to="/multi-brand-bookkeeping">
             <div className="stack-sm">
               <span className="idx">17 Sep 2026</span>
               {" "}
@@ -78,7 +78,7 @@ export default function Insights() {
         title="Want the next one?"
         text=" Write to us and we will send new notes as they are published. Nothing else. "
       >
-        <Link className="btn btn-primary" to="/contact.html?topic=insights">Ask to be added</Link>
+        <Link className="btn btn-primary" to="/contact?topic=insights">Ask to be added</Link>
       </CtaBand>
     </>
   );

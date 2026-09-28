@@ -4,7 +4,8 @@
 //   node scripts/parity.js [path/to/old/site]     (default: ../docs/upload-this-to-afraventures.in)
 //
 // For every page of the old static site, compares it with dist/<file>:
-//   title, meta description, canonical  → must match exactly
+//   title, meta description             → must match exactly
+//   canonical                           → must match, ignoring ".html" (new site uses clean URLs)
 //   visible text                        → whitespace-normalised, sentence by sentence;
 //                                         every removed / added sentence is listed
 // Exit code 0 when everything matches, 1 when anything differs or a page is missing.
@@ -128,7 +129,10 @@ for (const file of oldFiles) {
   const a = readPage(path.join(OLD, file));
   const b = readPage(path.join(NEW, file));
   const issues = [];
-  for (const key of ['title', 'description', 'canonical']) {
+  // The new site uses clean URLs (/about, not /about.html): compare canonicals without ".html".
+  const clean = url => url.replace(/\.html$/, '');
+  if (clean(a.canonical) !== clean(b.canonical)) issues.push(`  canonical differs\n    - ${a.canonical}\n    + ${b.canonical}`);
+  for (const key of ['title', 'description']) {
     if (a[key] !== b[key]) issues.push(`  ${key} differs\n    - ${a[key]}\n    + ${b[key]}`);
   }
   const text = diff(a.sentences, b.sentences);

@@ -47,7 +47,7 @@ export default function VelaiVaaippu() {
                 Open velaivaaipu.in
               </a>
               {" "}
-              <Link className="btn btn-ghost" to="/contact.html?topic=colleges">For colleges</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=colleges">For colleges</Link>
             </div>
           </div>
           <Panel head={["Status", "Live"]}>
@@ -331,7 +331,7 @@ export default function VelaiVaaippu() {
           </div>
         </div>
         <div className="btn-row">
-          <Link className="btn btn-primary" to="/contact.html?topic=colleges">
+          <Link className="btn btn-primary" to="/contact?topic=colleges">
             Talk to us about your placement cell
           </Link>
         </div>
@@ -484,7 +484,7 @@ export default function VelaiVaaippu() {
       >
         <a className="btn btn-primary" href="https://velaivaaipu.in" rel="noopener">Open the platform</a>
         {" "}
-        <Link className="btn btn-ghost" to="/college-placement-software.html">
+        <Link className="btn btn-ghost" to="/college-placement-software">
           What placement cells need
         </Link>
       </CtaBand>

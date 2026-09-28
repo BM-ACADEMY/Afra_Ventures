@@ -15,6 +15,16 @@ import '@fontsource/noto-sans-tamil/500.css';
 import '@fontsource/noto-sans-tamil/600.css';
 import './styles/site.css';
 
+// Old ".html" addresses (bookmarks, shared links, hosts without clean-URL
+// rewrites) show the right pre-rendered page; switch the address bar to the
+// clean URL before the router starts, so it matches that page:
+//   /about.html → /about, /gymdesk.html#what-it-does → /gymdesk#what-it-does, /index.html → /
+const { pathname, search, hash } = window.location;
+if (pathname.endsWith('.html')) {
+  const clean = pathname === '/index.html' ? '/' : pathname.slice(0, -'.html'.length);
+  window.history.replaceState(null, '', clean + search + hash);
+}
+
 const router = createBrowserRouter(routes);
 const app = (
   <StrictMode>

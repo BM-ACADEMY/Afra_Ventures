@@ -2,7 +2,7 @@ import Band from './Band.jsx';
 
 // Closing call-to-action strip. children = the buttons.
 //   <CtaBand title="Have a problem worth solving?" text="Tell us what it costs you today.">
-//     <Link className="btn btn-primary" to="/contact.html">Start a conversation</Link>
+//     <Link className="btn btn-primary" to="/contact">Start a conversation</Link>
 //   </CtaBand>
 export default function CtaBand({ title, text, children }) {
   return (

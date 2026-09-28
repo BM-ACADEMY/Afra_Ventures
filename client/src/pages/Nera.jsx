@@ -40,7 +40,7 @@ export default function Nera() {
               templates.
             </p>
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
-              <Link className="btn btn-primary" to="/contact.html?topic=nera">Talk to us about Nera</Link>
+              <Link className="btn btn-primary" to="/contact?topic=nera">Talk to us about Nera</Link>
               {" "}
               <a className="btn btn-ghost" href="#what-it-is">How it works</a>
             </div>
@@ -323,9 +323,9 @@ export default function Nera() {
         title="Losing enquiries to a slow reply?"
         text=" Tell us how many messages you get in a week, and who answers them today. "
       >
-        <Link className="btn btn-primary" to="/contact.html?topic=nera">Get in touch</Link>
+        <Link className="btn btn-primary" to="/contact?topic=nera">Get in touch</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/products.html">Other products</Link>
+        <Link className="btn btn-ghost" to="/products">Other products</Link>
       </CtaBand>
     </>
   );

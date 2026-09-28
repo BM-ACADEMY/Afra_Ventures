@@ -149,7 +149,7 @@ export default function About() {
         <p className="small muted">
           The engineering, support and sales team is twelve people, based at the Puducherry
           office.{" "}
-          <Link to="/careers.html">We are hiring.</Link>
+          <Link to="/careers">We are hiring.</Link>
         </p>
       </Band>
       <Band wrap="stack-lg">
@@ -188,9 +188,9 @@ export default function About() {
         title="Want to work with us, or for us?"
         text="Both conversations start the same way."
       >
-        <Link className="btn btn-primary" to="/contact.html">Get in touch</Link>
+        <Link className="btn btn-primary" to="/contact">Get in touch</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/careers.html">Open roles</Link>
+        <Link className="btn btn-ghost" to="/careers">Open roles</Link>
       </CtaBand>
     </>
   );

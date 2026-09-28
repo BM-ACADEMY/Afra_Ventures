@@ -4,7 +4,7 @@
 // 2. Raw-HTML SEO check: every dist/*.html, read as text (no JavaScript runs), must have
 //    - exactly one non-empty <title>
 //    - a non-empty <meta name="description">
-//    - <link rel="canonical"> = https://afraventures.in/<file>  (index.html → /)
+//    - <link rel="canonical"> = https://afraventures.in<path>  (clean URL: /about, / for home)
 //    - exactly one <h1>
 //    - JSON-LD that parses (every <script type="application/ld+json">)
 //    - noindex on drafts and 404, and never on live pages
@@ -60,7 +60,7 @@ for (const file of files) {
   else if (!attr(desc[0], 'content')?.trim()) fail('meta description is empty');
 
   const canon = tags(head, /<link\s[^>]*rel="canonical"[^>]*>/g);
-  const wantCanon = `${SITE.url}/${file === 'index.html' ? '' : file}`;
+  const wantCanon = SITE.url + page.path;
   if (canon.length !== 1) fail(`expected 1 canonical link, found ${canon.length}`);
   else if (attr(canon[0], 'href') !== wantCanon)
     fail(`canonical is ${attr(canon[0], 'href')}, expected ${wantCanon}`);

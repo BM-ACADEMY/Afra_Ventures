@@ -14,9 +14,9 @@ export default function CollegePlacementSoftware() {
       lede="Placement cells are judged every year on a number they have to assemble by telephone. Most placement software solves a different problem entirely."
       actions={
         <>
-          <Link className="btn btn-primary" to="/velai-vaaippu.html">See Velai Vaaippu</Link>
+          <Link className="btn btn-primary" to="/velai-vaaippu">See Velai Vaaippu</Link>
           {" "}
-          <Link className="btn btn-ghost" to="/contact.html?topic=colleges">
+          <Link className="btn btn-ghost" to="/contact?topic=colleges">
             Talk to us about your cell
           </Link>
         </>
@@ -110,7 +110,7 @@ export default function CollegePlacementSoftware() {
       </p>
       <p>
         That is how we built{" "}
-        <Link to="/velai-vaaippu.html">Velai Vaaippu</Link>
+        <Link to="/velai-vaaippu">Velai Vaaippu</Link>
         : the college panel models the cohort and the year, and the training programme sits
         alongside it rather than being sold as an afterthought.
       </p>

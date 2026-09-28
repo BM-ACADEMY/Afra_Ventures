@@ -11,7 +11,7 @@ import { breadcrumb } from '../lib/jsonld.js';
 const PRODUCTS = [
   {
     stage: 'beta',
-    to: '/gymdesk.html',
+    to: '/gymdesk',
     idx: '01',
     name: 'GymDesk',
     chip: 'Beta · in testing',
@@ -19,7 +19,7 @@ const PRODUCTS = [
   },
   {
     stage: 'dev',
-    to: '/nera.html',
+    to: '/nera',
     idx: '02',
     name: 'Nera',
     chip: 'In development',
@@ -27,7 +27,7 @@ const PRODUCTS = [
   },
   {
     stage: 'live',
-    to: '/velai-vaaippu.html',
+    to: '/velai-vaaippu',
     idx: '03',
     name: 'Velai Vaaippu',
     chip: 'Live',
@@ -79,21 +79,21 @@ export default function Products() {
                 <td>Gyms, fitness studios, small chains</td>
                 <td>Keep members and collect on time, automatically</td>
                 <td>Beta</td>
-                <td><Link to="/gymdesk.html">Join the pilot</Link></td>
+                <td><Link to="/gymdesk">Join the pilot</Link></td>
               </tr>
               <tr>
                 <td><strong>Nera</strong></td>
                 <td>Any business taking enquiries on WhatsApp</td>
                 <td>Reply in seconds and follow up without fail</td>
                 <td>In development</td>
-                <td><Link to="/nera.html">Follow the build</Link></td>
+                <td><Link to="/nera">Follow the build</Link></td>
               </tr>
               <tr>
                 <td><strong>Velai Vaaippu</strong></td>
                 <td>Job seekers, students, employers, college placement cells</td>
                 <td>Assess skills, fill openings, prove placement numbers</td>
                 <td>Live</td>
-                <td><Link to="/velai-vaaippu.html">Use it today</Link></td>
+                <td><Link to="/velai-vaaippu">Use it today</Link></td>
               </tr>
             </tbody>
           </table>
@@ -140,9 +140,9 @@ export default function Products() {
         title="Need something none of these does?"
         text=" We take on custom product engineering when the problem is a real one. "
       >
-        <Link className="btn btn-primary" to="/contact.html">Tell us about it</Link>
+        <Link className="btn btn-primary" to="/contact">Tell us about it</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/technology.html">How we build</Link>
+        <Link className="btn btn-ghost" to="/technology">How we build</Link>
       </CtaBand>
     </>
   );

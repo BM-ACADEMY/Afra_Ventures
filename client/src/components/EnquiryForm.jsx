@@ -59,7 +59,7 @@ function ContactFields() {
 const CONTACT_FOOTER = (
   <p className="small muted">
     We use what you send here only to reply to you. See our{' '}
-    <Link to="/privacy.html">privacy policy</Link>.
+    <Link to="/privacy">privacy policy</Link>.
   </p>
 );
 

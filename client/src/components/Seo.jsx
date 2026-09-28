@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect } from 'react';
-import { PAGES } from '../config/pages.js';
+import { PAGES, urlPath } from '../config/pages.js';
 import { SITE } from '../config/site.js';
 import { organization } from '../lib/jsonld.js';
 
@@ -19,7 +19,7 @@ function buildTags({
   image = SITE.ogImage,
   jsonLd = [],
 }) {
-  const url = `${SITE.url}/${file === 'index.html' ? '' : file}`;
+  const url = SITE.url + urlPath(file);
   const meta = (key, name, content) => ({ tag: 'meta', attrs: { [key]: name, content } });
   const tags = [
     meta('name', 'description', description),

@@ -45,7 +45,7 @@ export default function ArticleLayout({
       <Band>
         <div className="stack" style={{ maxWidth: '68ch' }}>
           <p className="eyebrow">
-            <Link to="/insights.html" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <Link to="/insights" style={{ color: 'inherit', textDecoration: 'none' }}>
               Insights
             </Link>{' '}
             · {topic} · {longDate(datePublished)}
