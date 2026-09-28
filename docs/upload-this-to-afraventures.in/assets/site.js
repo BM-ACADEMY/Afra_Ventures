@@ -153,7 +153,8 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
-          }).then(function () {
+          }).then(function (res) {
+            if (!res.ok) throw new Error(res.status);
             if (status) {
               status.textContent = "Thanks — we have your enquiry and will reply within one working day.";
               status.style.color = "var(--ok)";
