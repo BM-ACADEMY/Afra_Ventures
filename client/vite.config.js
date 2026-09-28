@@ -7,4 +7,8 @@ export default defineConfig({
   // Root-absolute asset paths, so every page (including 404.html served at a
   // deep missing URL) loads /assets/… correctly.
   base: '/',
+  // Vitest: unit tests only. Playwright's tests/*.spec.js run with `npm run test:e2e`.
+  test: {
+    include: ['src/**/*.test.{js,jsx}'],
+  },
 })
