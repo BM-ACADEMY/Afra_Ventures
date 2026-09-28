@@ -83,7 +83,7 @@ export default function GymDesk() {
               forgotten.
             </p>
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
-              <Link className="btn btn-primary" to="/contact.html?topic=gymdesk">Apply for the pilot</Link>
+              <Link className="btn btn-primary" to="/contact?topic=gymdesk">Apply for the pilot</Link>
               {" "}
               <a className="btn btn-ghost" href="#what-it-is">How it works</a>
             </div>
@@ -554,7 +554,7 @@ export default function GymDesk() {
           </Card>
         </div>
         <div className="btn-row">
-          <Link className="btn btn-primary" to="/contact.html?topic=gymdesk">Apply for the pilot</Link>
+          <Link className="btn btn-primary" to="/contact?topic=gymdesk">Apply for the pilot</Link>
         </div>
       </Band>
       <Band alt wrap="stack-lg">
@@ -568,9 +568,9 @@ export default function GymDesk() {
         title="Run a gym in Puducherry or Tamil Nadu?"
         text=" We will come to you, look at your register, and tell you whether this helps. "
       >
-        <Link className="btn btn-primary" to="/contact.html?topic=gymdesk">Apply for the pilot</Link>
+        <Link className="btn btn-primary" to="/contact?topic=gymdesk">Apply for the pilot</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/products.html">Other products</Link>
+        <Link className="btn btn-ghost" to="/products">Other products</Link>
       </CtaBand>
     </>
   );

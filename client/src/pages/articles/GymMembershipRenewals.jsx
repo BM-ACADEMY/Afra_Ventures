@@ -14,9 +14,9 @@ export default function GymMembershipRenewals() {
       lede="Almost nobody cancels a gym membership. They stop coming, the plan runs out, and the gym finds out at the end of the quarter. That gap is where most of the money goes."
       actions={
         <>
-          <Link className="btn btn-primary" to="/gymdesk.html">See GymDesk</Link>
+          <Link className="btn btn-primary" to="/gymdesk">See GymDesk</Link>
           {" "}
-          <Link className="btn btn-ghost" to="/insights.html">More notes</Link>
+          <Link className="btn btn-ghost" to="/insights">More notes</Link>
         </>
       }
     >
@@ -95,7 +95,7 @@ export default function GymMembershipRenewals() {
       </p>
       <p>
         That is the whole argument for a product like{" "}
-        <Link to="/gymdesk.html">GymDesk</Link>
+        <Link to="/gymdesk">GymDesk</Link>
         , and it is worth being clear that it is a modest one. The software does not retain
         members. It makes sure the person who could have retained them knows in time.
       </p>
@@ -104,7 +104,7 @@ export default function GymMembershipRenewals() {
         For a gym with 180 members at ₹1,200 a month, a 35% annual lapse rate and forty
         enquiries a month, the two leaks together tend to be worth several lakh rupees a year.
         The{" "}
-        <Link to="/gymdesk.html#what-it-does">calculator on the GymDesk page</Link>
+        <Link to="/gymdesk#what-it-does">calculator on the GymDesk page</Link>
         {" "}lets you put your own numbers in and shows the assumptions behind the result, so
         you can decide whether you believe it.
       </p>

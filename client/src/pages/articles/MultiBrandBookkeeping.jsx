@@ -14,9 +14,9 @@ export default function MultiBrandBookkeeping() {
       lede="One company, five lines of business, one bank account. The statutory books are clean and they answer none of the questions the owner actually has."
       actions={
         <>
-          <Link className="btn btn-primary" to="/insights.html">More notes</Link>
+          <Link className="btn btn-primary" to="/insights">More notes</Link>
           {" "}
-          <Link className="btn btn-ghost" to="/contact.html">Talk to us</Link>
+          <Link className="btn btn-ghost" to="/contact">Talk to us</Link>
         </>
       }
     >

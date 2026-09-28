@@ -20,7 +20,7 @@ export default function NotFound() {
           <div className="btn-row" style={{ marginTop: '.5rem' }}>
             <Link className="btn btn-primary" to="/">Back to the home page</Link>
             {" "}
-            <Link className="btn btn-ghost" to="/products.html">See the products</Link>
+            <Link className="btn btn-ghost" to="/products">See the products</Link>
           </div>
         </div>
       </Band>
@@ -30,17 +30,17 @@ export default function NotFound() {
           <h2>The pages people look for.</h2>
         </div>
         <div className="grid grid-3">
-          <Link className="card" to="/gymdesk.html" style={{ textDecoration: 'none' }}>
+          <Link className="card" to="/gymdesk" style={{ textDecoration: 'none' }}>
             <h4>GymDesk</h4>
             <p>Gym management software, currently in beta.</p>
           </Link>
           {" "}
-          <Link className="card" to="/velai-vaaippu.html" style={{ textDecoration: 'none' }}>
+          <Link className="card" to="/velai-vaaippu" style={{ textDecoration: 'none' }}>
             <h4>Velai Vaaippu</h4>
             <p>Jobs and campus placement platform, live now.</p>
           </Link>
           {" "}
-          <Link className="card" to="/contact.html" style={{ textDecoration: 'none' }}>
+          <Link className="card" to="/contact" style={{ textDecoration: 'none' }}>
             <h4>Contact</h4>
             <p>Reach a person here within one working day.</p>
           </Link>

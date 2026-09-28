@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router';
 
 const NAV = [
-  ['/products.html', 'Products'],
-  ['/technology.html', 'How we build'],
-  ['/partners.html', 'Partners'],
-  ['/about.html', 'About'],
-  ['/insights.html', 'Insights'],
-  ['/careers.html', 'Careers'],
+  ['/products', 'Products'],
+  ['/technology', 'How we build'],
+  ['/partners', 'Partners'],
+  ['/about', 'About'],
+  ['/insights', 'Insights'],
+  ['/careers', 'Careers'],
 ];
 
 export default function Header() {
@@ -42,7 +42,7 @@ export default function Header() {
               {label}
             </NavLink>
           ))}
-          <NavLink to="/contact.html" end className={() => 'btn btn-primary'}>
+          <NavLink to="/contact" end className={() => 'btn btn-primary'}>
             Contact
           </NavLink>
         </nav>

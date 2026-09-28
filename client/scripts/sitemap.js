@@ -12,7 +12,7 @@ const { PAGES, SITE } = await import(entry);
 const today = new Date().toISOString().slice(0, 10);
 const urls = PAGES.filter(p => !p.draft && !p.noindex).map(
   p => `  <url>
-    <loc>${SITE.url}/${p.file === 'index.html' ? '' : p.file}</loc>
+    <loc>${SITE.url}${p.path}</loc>
     <lastmod>${today}</lastmod>
     <priority>${p.priority.toFixed(1)}</priority>
   </url>`,

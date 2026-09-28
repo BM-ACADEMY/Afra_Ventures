@@ -4,7 +4,7 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
 // After a client-side navigation, go to the top of the new page, or to the
-// #anchor if the link has one (e.g. /gymdesk.html#what-it-does). The first
+// #anchor if the link has one (e.g. /gymdesk#what-it-does). The first
 // load is left to the browser.
 function ScrollManager() {
   const { pathname, hash } = useLocation();

@@ -69,7 +69,7 @@ export default function Terms() {
           <h2>Privacy</h2>
           <p>
             How we handle personal information is set out in our{" "}
-            <Link to="/privacy.html">privacy policy</Link>
+            <Link to="/privacy">privacy policy</Link>
             .
           </p>
           <h2>Governing law</h2>

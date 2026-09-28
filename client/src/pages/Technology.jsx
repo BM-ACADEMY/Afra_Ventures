@@ -216,7 +216,7 @@ export default function Technology() {
         </div>
         <p className="small muted">
           Full detail on collection, retention and deletion is in our{" "}
-          <Link to="/privacy.html">privacy policy</Link>
+          <Link to="/privacy">privacy policy</Link>
           .
         </p>
       </Band>
@@ -238,9 +238,9 @@ export default function Technology() {
         title="Want something built this way?"
         text="We take on custom product engineering alongside our own products."
       >
-        <Link className="btn btn-primary" to="/contact.html?topic=custom">Describe your project</Link>
+        <Link className="btn btn-primary" to="/contact?topic=custom">Describe your project</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/careers.html">Or come and build with us</Link>
+        <Link className="btn btn-ghost" to="/careers">Or come and build with us</Link>
       </CtaBand>
     </>
   );

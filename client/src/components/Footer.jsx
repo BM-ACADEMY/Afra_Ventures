@@ -23,20 +23,20 @@ export default function Footer() {
           <div>
             <h5>Products</h5>
             <ul>
-              <li><Link to="/gymdesk.html">GymDesk</Link></li>
-              <li><Link to="/nera.html">Nera</Link></li>
-              <li><Link to="/velai-vaaippu.html">Velai Vaaippu</Link></li>
-              <li><Link to="/products.html">All products</Link></li>
+              <li><Link to="/gymdesk">GymDesk</Link></li>
+              <li><Link to="/nera">Nera</Link></li>
+              <li><Link to="/velai-vaaippu">Velai Vaaippu</Link></li>
+              <li><Link to="/products">All products</Link></li>
             </ul>
           </div>
           <div>
             <h5>Company</h5>
             <ul>
-              <li><Link to="/about.html">About</Link></li>
-              <li><Link to="/technology.html">How we build</Link></li>
-              <li><Link to="/partners.html">Partners</Link></li>
-              <li><Link to="/careers.html">Careers</Link></li>
-              <li><Link to="/insights.html">Insights</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/technology">How we build</Link></li>
+              <li><Link to="/partners">Partners</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/insights">Insights</Link></li>
             </ul>
           </div>
           <div>
@@ -44,7 +44,7 @@ export default function Footer() {
             <ul>
               <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><a href={`tel:${SITE.phoneTel}`}>{SITE.phoneDisplay}</a></li>
-              <li><Link to="/contact.html">Contact form</Link></li>
+              <li><Link to="/contact">Contact form</Link></li>
             </ul>
             <p className="small muted" style={{ marginTop: '.85rem' }}>
               {SITE.address.street}
@@ -59,8 +59,8 @@ export default function Footer() {
           <span>© {YEAR} {SITE.legalName}</span>
           <span>CIN {SITE.cin}</span>
           <span>
-            <Link to="/privacy.html">Privacy</Link> &nbsp;·&nbsp;{' '}
-            <Link to="/terms.html">Terms</Link>
+            <Link to="/privacy">Privacy</Link> &nbsp;·&nbsp;{' '}
+            <Link to="/terms">Terms</Link>
           </span>
         </div>
       </div>

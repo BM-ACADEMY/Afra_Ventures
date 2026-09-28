@@ -39,7 +39,7 @@ export default function Partners() {
               programme together.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=colleges">Arrange a visit</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=colleges">Arrange a visit</Link>
             </span>
           </div>
           <div className="ledger-row">
@@ -53,7 +53,7 @@ export default function Partners() {
               screens and delivers a shortlist against an agreed fee and a replacement guarantee.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=hiring">Tell us the role</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=hiring">Tell us the role</Link>
             </span>
           </div>
           <div className="ledger-row">
@@ -69,7 +69,7 @@ export default function Partners() {
               would be a first.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=institutional">
+              <Link className="btn btn-ghost" to="/contact?topic=institutional">
                 Start a conversation
               </Link>
             </span>
@@ -85,7 +85,7 @@ export default function Partners() {
               brochure site, and we will say so if what you need is the latter.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=custom">Describe the project</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=custom">Describe the project</Link>
             </span>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default function Partners() {
         title="Not sure which of these you are?"
         text=" Describe the situation and we will point you to the right one, including if it is not us. "
       >
-        <Link className="btn btn-primary" to="/contact.html">Write to us</Link>
+        <Link className="btn btn-primary" to="/contact">Write to us</Link>
       </CtaBand>
     </>
   );

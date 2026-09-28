@@ -77,7 +77,7 @@ export default function Careers() {
               Two years or more of shipping something people used.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=careers">Apply</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=careers">Apply</Link>
             </span>
           </div>
           <div className="ledger-row">
@@ -92,7 +92,7 @@ export default function Careers() {
               patient, organised. Software experience helps but is not required.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=careers">Apply</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=careers">Apply</Link>
             </span>
           </div>
           <div className="ledger-row">
@@ -107,7 +107,7 @@ export default function Careers() {
               and in a factory office. Two-wheeler and willingness to travel the district.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=careers">Apply</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=careers">Apply</Link>
             </span>
           </div>
           <div className="ledger-row">
@@ -122,7 +122,7 @@ export default function Careers() {
               this pool when a role opens.
             </p>
             <span className="tail">
-              <Link className="btn btn-ghost" to="/contact.html?topic=careers">Apply</Link>
+              <Link className="btn btn-ghost" to="/contact?topic=careers">Apply</Link>
             </span>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function Careers() {
             </p>
           </div>
           <div className="btn-row">
-            <Link className="btn btn-primary" to="/contact.html?topic=careers">Send an application</Link>
+            <Link className="btn btn-primary" to="/contact?topic=careers">Send an application</Link>
           </div>
         </div>
       </Band>

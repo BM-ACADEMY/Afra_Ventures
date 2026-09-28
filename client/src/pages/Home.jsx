@@ -54,9 +54,9 @@ export default function Home() {
               never quite arrived.
             </p>
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
-              <Link className="btn btn-primary" to="/products.html">See what we have built</Link>
+              <Link className="btn btn-primary" to="/products">See what we have built</Link>
               {" "}
-              <Link className="btn btn-ghost" to="/contact.html">Talk to us</Link>
+              <Link className="btn btn-ghost" to="/contact">Talk to us</Link>
             </div>
           </div>
           <Panel head={["Registry record", "MCA / India"]}>
@@ -137,7 +137,7 @@ export default function Home() {
           </p>
         </div>
         <div className="ledger">
-          <Link className="ledger-row" to="/gymdesk.html">
+          <Link className="ledger-row" to="/gymdesk">
             <span className="idx">01</span>
             <div className="stack-sm" style={{ alignItems: 'flex-start' }}>
               <h3>GymDesk</h3>
@@ -152,7 +152,7 @@ export default function Home() {
             <span className="tail"><span className="arrow" aria-hidden="true">→</span></span>
           </Link>
           {" "}
-          <Link className="ledger-row" to="/nera.html">
+          <Link className="ledger-row" to="/nera">
             <span className="idx">02</span>
             <div className="stack-sm" style={{ alignItems: 'flex-start' }}>
               <h3>Nera</h3>
@@ -166,7 +166,7 @@ export default function Home() {
             <span className="tail"><span className="arrow" aria-hidden="true">→</span></span>
           </Link>
           {" "}
-          <Link className="ledger-row" to="/velai-vaaippu.html">
+          <Link className="ledger-row" to="/velai-vaaippu">
             <span className="idx">03</span>
             <div className="stack-sm" style={{ alignItems: 'flex-start' }}>
               <h3>
@@ -306,9 +306,9 @@ export default function Home() {
         title="Have a problem worth solving?"
         text=" Tell us what it costs you today. We will tell you honestly whether software fixes it. "
       >
-        <Link className="btn btn-primary" to="/contact.html">Start a conversation</Link>
+        <Link className="btn btn-primary" to="/contact">Start a conversation</Link>
         {" "}
-        <Link className="btn btn-ghost" to="/partners.html">Partner with us</Link>
+        <Link className="btn btn-ghost" to="/partners">Partner with us</Link>
       </CtaBand>
     </>
   );

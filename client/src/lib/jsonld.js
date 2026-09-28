@@ -1,8 +1,9 @@
 // JSON-LD builders. Output matches the structured data on the static site.
+import { urlPath } from '../config/pages.js';
 import { SITE } from '../config/site.js';
 
 const ORG_ID = `${SITE.url}/#organization`;
-const pageUrl = file => `${SITE.url}/${file === 'index.html' ? '' : file}`;
+const pageUrl = file => SITE.url + urlPath(file);
 const ctx = type => ({ '@context': 'https://schema.org', '@type': type });
 
 export const organization = () => ({
