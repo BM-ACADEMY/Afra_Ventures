@@ -23,8 +23,9 @@ export default function Header() {
     <header className="masthead">
       <div className="wrap masthead-in">
         <Link className="brand" to="/">
-          <span className="mark" aria-hidden="true" />
-          Afra Ventures
+          {/* Logo drawn in the text colour via a CSS mask (see .brand-logo in site.css),
+              so the white artwork reads on both the light and the dark theme. */}
+          <span className="brand-logo" role="img" aria-label="Afra Ventures" />
           <span className="sub">Puducherry</span>
         </Link>
         <button
