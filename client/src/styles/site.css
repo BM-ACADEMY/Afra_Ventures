@@ -217,13 +217,19 @@ section:first-of-type { border-top: 0; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
+/* logo | centred links | Contact. A grid with 1fr side columns keeps the links
+   centred on the page whatever the widths of the logo and the button. */
 .masthead-in {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   min-height: 60px;
 }
+.masthead-in > .brand { grid-column: 1; grid-row: 1; justify-self: start; }
+.masthead-in > .nav { grid-column: 2; grid-row: 1; }
+.masthead-in > .masthead-cta { grid-column: 3; grid-row: 1; justify-self: end; }
+.masthead-in > .navtoggle { grid-column: 3; grid-row: 1; justify-self: end; }
 .brand {
   display: inline-flex;
   align-items: baseline;
@@ -282,6 +288,11 @@ section:first-of-type { border-top: 0; }
 
 @media (max-width: 880px) {
   .navtoggle { display: inline-block; }
+  /* phones: logo | Contact | MENU (the links drop down from MENU) */
+  .masthead-in { grid-template-columns: 1fr auto auto; gap: .6rem; }
+  .masthead-in > .masthead-cta { grid-column: 2; }
+  .masthead-in > .navtoggle { grid-column: 3; }
+  .masthead-cta { padding: .45rem .8rem; }
   .nav {
     display: none;
     position: absolute;
@@ -794,8 +805,10 @@ td strong { color: var(--ink); }
   -webkit-mask: url("/logo/afra-logo.png") center / contain no-repeat;
   mask: url("/logo/afra-logo.png") center / contain no-repeat;
 }
-/* "Puducherry" sits on the same line as "VENTURES" at the foot of the logo. */
+/* "Puducherry" sits on the same line as "VENTURES" at the foot of the logo;
+   hidden on very narrow phones to make room for Contact and MENU. */
 .brand-logo + .sub { align-self: flex-end; line-height: 1; margin-bottom: 1px; }
+@media (max-width: 440px) { .brand-logo + .sub { display: none; } }
 @media (forced-colors: active) {
   .brand-logo { forced-color-adjust: none; background-color: CanvasText; }
 }

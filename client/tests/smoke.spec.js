@@ -27,7 +27,7 @@ for (const page of LIVE) {
       await expect(p.locator('h1')).toHaveCount(1);
       expect(errors).toEqual([]);
 
-      const current = p.locator('#nav a[aria-current="page"]');
+      const current = p.locator('header.masthead a[aria-current="page"]');
       if (NAV.has(page.file)) {
         await expect(current).toHaveCount(1);
         await expect(current).toHaveAttribute('href', page.path);
