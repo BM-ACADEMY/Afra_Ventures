@@ -43,10 +43,11 @@ export default function Header() {
               {label}
             </NavLink>
           ))}
-          <NavLink to="/contact" end className={() => 'btn btn-primary'}>
-            Contact
-          </NavLink>
         </nav>
+        {/* Outside the nav: stays visible on phones, next to MENU. */}
+        <NavLink to="/contact" end className={() => 'btn btn-primary masthead-cta'}>
+          Contact
+        </NavLink>
       </div>
     </header>
   );
