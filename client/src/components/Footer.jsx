@@ -12,8 +12,8 @@ export default function Footer() {
         <div className="foot-grid">
           <div>
             <Link className="brand" to="/" style={{ marginBottom: '.75rem' }}>
-              <span className="mark" aria-hidden="true" />
-              Afra Ventures
+              {/* Same logo as the header; see .brand-logo in site.css. */}
+              <span className="brand-logo" role="img" aria-label="Afra Ventures" />
             </Link>
             <p className="small muted" style={{ maxWidth: '34ch' }}>
               A women-led software product company in Puducherry, building tools for the

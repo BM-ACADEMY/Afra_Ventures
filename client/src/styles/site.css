@@ -780,3 +780,22 @@ td strong { color: var(--ink); }
   .stickycta { display: flex; }
   body.landing { padding-bottom: 84px; }
 }
+
+/* ---------- header logo ----------
+   public/logo/afra-logo.png is the white wordmark (trimmed). It is used as a
+   mask and filled with the text colour, so it is dark on the light theme and
+   light on the dark theme. */
+.brand-logo {
+  display: block;
+  align-self: center;
+  height: 38px;
+  aspect-ratio: 254 / 120;
+  background-color: currentColor;
+  -webkit-mask: url("/logo/afra-logo.png") center / contain no-repeat;
+  mask: url("/logo/afra-logo.png") center / contain no-repeat;
+}
+/* "Puducherry" sits on the same line as "VENTURES" at the foot of the logo. */
+.brand-logo + .sub { align-self: flex-end; line-height: 1; margin-bottom: 1px; }
+@media (forced-colors: active) {
+  .brand-logo { forced-color-adjust: none; background-color: CanvasText; }
+}
