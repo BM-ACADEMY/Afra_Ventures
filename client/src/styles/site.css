@@ -217,17 +217,17 @@ section:first-of-type { border-top: 0; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
-/* logo | centred links | Contact. A grid with 1fr side columns keeps the links
-   centred on the page whatever the widths of the logo and the button. */
+/* logo + links on the left, Contact on the right (Stripe-style), inside the
+   page content column so the logo lines up with the text below. */
 .masthead-in {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
   min-height: 60px;
 }
 .masthead-in > .brand { grid-column: 1; grid-row: 1; justify-self: start; }
-.masthead-in > .nav { grid-column: 2; grid-row: 1; }
+.masthead-in > .nav { grid-column: 2; grid-row: 1; justify-self: start; margin-left: 1.75rem; }
 .masthead-in > .masthead-cta { grid-column: 3; grid-row: 1; justify-self: end; }
 .masthead-in > .navtoggle { grid-column: 3; grid-row: 1; justify-self: end; }
 .brand {
@@ -811,4 +811,250 @@ td strong { color: var(--ink); }
 @media (max-width: 440px) { .brand-logo + .sub { display: none; } }
 @media (forced-colors: active) {
   .brand-logo { forced-color-adjust: none; background-color: CanvasText; }
+}
+
+/* ============================================================
+   Header — teaser-style look, in the site's own indigo
+   - glowing bottom line (fades out at both ends)
+   - deeper navy header in dark mode
+   - soft glow on the active link, link hover and the Contact button
+   ============================================================ */
+.masthead {
+  --glow: color-mix(in srgb, var(--brand) 55%, transparent);
+  --glow-soft: color-mix(in srgb, var(--brand) 22%, transparent);
+  border-bottom-color: transparent;
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glow) 25%, var(--brand) 50%, var(--glow) 75%, transparent);
+  box-shadow: 0 0 12px 1px var(--glow-soft);
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .masthead { background: color-mix(in srgb, #0a0e1a 84%, transparent); }
+}
+:root[data-theme="dark"] .masthead { background: color-mix(in srgb, #0a0e1a 84%, transparent); }
+
+/* nav links: glowing underline on hover and for the current page */
+.nav a { transition: color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.nav a:hover { box-shadow: 0 7px 12px -9px var(--glow); }
+.nav a[aria-current="page"] {
+  border-bottom-color: var(--brand);
+  box-shadow: 0 8px 14px -8px var(--glow);
+}
+
+/* Contact button: soft glow, a little stronger and lifted on hover */
+.masthead-cta {
+  box-shadow: 0 0 0 1px var(--glow-soft), 0 6px 18px -8px var(--glow);
+  transition: box-shadow .2s ease, transform .15s ease;
+}
+.masthead-cta:hover {
+  box-shadow: 0 0 0 1px var(--glow), 0 8px 24px -6px var(--glow);
+  transform: translateY(-1px);
+}
+
+/* Stripe-style links: darker, medium weight, slightly larger */
+@media (min-width: 881px) {
+  .masthead .nav { gap: 1.75rem; }
+  .masthead .nav a { color: var(--ink); font-weight: 500; font-size: .9375rem; }
+  .masthead .nav a:hover { color: var(--brand); }
+}
+
+/* Contact › : arrow nudges right on hover */
+.masthead-cta { display: inline-flex; align-items: center; gap: .45rem; }
+.masthead-cta .cta-arrow { transition: transform .15s ease; }
+.masthead-cta:hover .cta-arrow { transform: translateX(2px); }
+
+/* phone menu: the dropdown panel shares the header's glow line */
+@media (max-width: 880px) {
+  .nav a:hover, .nav a[aria-current="page"] { box-shadow: none; }
+  .nav.open { box-shadow: 0 16px 30px -18px var(--glow); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav a, .masthead-cta { transition: none; }
+  .masthead-cta:hover, .masthead-cta:hover .cta-arrow { transform: none; }
+}
+
+/* ============================================================
+   Home hero — Stripe-style (Home page only: .hero-stripe)
+   - static colour ribbon behind the hero and the header
+   - big two-tone heading: dark headline, slate lede at display size
+   - thin guide lines framing the content column
+   - Registry panel as a card floating over the ribbon
+   ============================================================ */
+:root { --hero-slate: #425466; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hero-slate: #a3b3c9; } }
+:root[data-theme="dark"] { --hero-slate: #a3b3c9; }
+
+.hero-stripe {
+  position: relative;
+  padding-block: clamp(4rem, 9vw, 7.5rem) clamp(3.5rem, 7vw, 6rem);
+}
+/* ribbon: extends up behind the (transparent) header, clipped to the hero */
+.hero-ribbon {
+  position: absolute;
+  inset: -61px 0 0 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-ribbon svg {
+  position: absolute;
+  top: 0;
+  right: max(-8vw, -120px);
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1000 / 800;
+}
+/* guide lines at the edges of the content column */
+.hero-stripe::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: max(0px, calc(50% - var(--wrap) / 2));
+  right: max(0px, calc(50% - var(--wrap) / 2));
+  border-inline: 1px solid var(--rule);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-stripe > .wrap { position: relative; z-index: 1; }
+.hero-stripe .hero-grid { align-items: center; }
+
+/* two-tone display heading */
+.hero-stripe h1 { color: var(--ink); letter-spacing: -.035em; }
+.hero-stripe .lede {
+  color: var(--hero-slate);
+  font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  max-width: 36ch;
+}
+
+/* Registry panel floats over the ribbon */
+.hero-stripe .panel {
+  box-shadow: 0 1px 2px rgba(50, 50, 93, .08), 0 30px 60px -30px rgba(50, 50, 93, .35);
+}
+
+/* buttons with an arrow (reuses .cta-arrow) */
+.btn-arrow { display: inline-flex; align-items: center; gap: .5rem; }
+.btn-arrow .cta-arrow { transition: transform .15s ease; }
+.btn-arrow:hover .cta-arrow { transform: translateX(2px); }
+
+/* header over the ribbon: transparent at the top of Home, solid once scrolled */
+.masthead { transition: background-color .2s ease, backdrop-filter .2s ease; }
+:root .masthead.masthead--clear {
+  background: transparent;
+  backdrop-filter: none;
+}
+:root .masthead.masthead--clear::after { opacity: .35; }
+
+/* phones: the ribbon sits across the top only, behind header and eyebrow */
+@media (max-width: 900px) {
+  .hero-stripe::before { display: none; }
+  .hero-ribbon { bottom: auto; height: 260px; }
+  .hero-ribbon svg { right: -90px; }
+  .hero-stripe { padding-top: clamp(7rem, 30vw, 9rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead, .btn-arrow .cta-arrow { transition: none; }
+  .btn-arrow:hover .cta-arrow { transform: none; }
+}
+
+
+/* Dark theme: the bright ribbon would sit behind light nav text, so the Home
+   header stays solid (glassy navy) instead of fully transparent. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .masthead.masthead--clear {
+    background: color-mix(in srgb, #0a0e1a 84%, transparent);
+    backdrop-filter: blur(10px);
+  }
+}
+:root[data-theme="dark"] .masthead.masthead--clear {
+  background: color-mix(in srgb, #0a0e1a 84%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================================
+   Home page — Stripe-style LIGHT theme, always (.theme-stripe, set by Layout on "/")
+   Applies whatever the visitor's system theme is, so Home always looks like the
+   Stripe reference: white page, pale blue-grey bands, navy/slate text, Stripe
+   purple, Inter type, flat header line and buttons. Other pages still follow the
+   system light/dark setting. Kept last in the file so it wins over dark-theme rules.
+   ============================================================ */
+:root .theme-stripe {
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #f6f9fc;
+  /* royal blue family: deep royal text, royal slate body, royal blue buttons */
+  --ink: #0b1f66; --ink-2: #3a4a82; --ink-3: #5e6a94;
+  --rule: #e3e8ee; --rule-strong: #c1c9d2;
+  --brand: #2649d6; --brand-ink: #ffffff; --brand-soft: #efeeff;
+  --accent: #955a00; --accent-soft: #fbf0dd;
+  --ok: #17715a; --ok-soft: #dff0e9;
+  --warn: #9a5c00; --warn-soft: #fbeeda;
+  --idle: #5a5d80; --idle-soft: #e8e8f1;
+  --hero-slate: #3a4a82;
+  --shadow: 0 2px 5px -1px rgba(50, 50, 93, .25), 0 1px 3px -1px rgba(0, 0, 0, .3);
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+/* page edges and scrollbars light too while Home is shown */
+:root:has(.theme-stripe) { color-scheme: light; }
+body:has(.theme-stripe) { background: #ffffff; }
+
+:root .theme-stripe .band-alt { background: var(--surface-2); }
+
+/* header: white glass when scrolled, transparent over the ribbon at the top,
+   flat thin grey line, flat purple button */
+:root .theme-stripe .masthead { background: color-mix(in srgb, #ffffff 90%, transparent); }
+:root .theme-stripe .masthead.masthead--clear { background: transparent; backdrop-filter: none; }
+:root .theme-stripe .masthead::after { background: var(--rule); box-shadow: none; opacity: 1; }
+:root .theme-stripe .masthead .nav a { color: var(--ink); font-weight: 500; }
+:root .theme-stripe .masthead .nav a:hover { color: var(--ink-2); box-shadow: none; }
+:root .theme-stripe .masthead-cta,
+:root .theme-stripe .masthead-cta:hover { box-shadow: none; }
+:root .theme-stripe .btn { border-radius: 4px; font-weight: 600; }
+/* buttons: midnight (text and accents stay in the royal blue family) */
+:root .theme-stripe .btn-primary { background: #111827; }
+:root .theme-stripe .btn-primary:hover { background: #374151; }
+
+/* hero: Stripe's plain one-line kicker instead of the mono eyebrow */
+:root .theme-stripe .hero-stripe .eyebrow {
+  font-family: var(--font-sans); text-transform: none; letter-spacing: 0;
+  font-size: .9375rem; font-weight: 500; color: var(--ink);
+}
+:root .theme-stripe .hero-stripe .eyebrow::before { display: none; }
+:root .theme-stripe .hero-stripe h1 { font-weight: 600; letter-spacing: -.04em; }
+:root .theme-stripe .hero-stripe .lede { font-weight: 500; }
+
+/* bigger, bolder ribbon reaching further left, like Stripe's */
+:root .theme-stripe .hero-ribbon svg { height: 100%; right: -3vw; }
+@media (max-width: 900px) {
+  :root .theme-stripe .hero-ribbon svg { height: 100%; right: -90px; }
+}
+
+/* Hero wave image (HeroRibbon.jsx): full height of hero + header; the ribbon
+   enters at the top about 42% across the page and sweeps down to the right. */
+.hero-ribbon .hero-wave {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 290px);
+  height: 100%;
+  width: auto;
+  max-width: none;
+  user-select: none;
+}
+@media (max-width: 900px) {
+  .hero-ribbon .hero-wave {
+    left: auto; right: -60px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
 }

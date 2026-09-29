@@ -4,6 +4,7 @@ import { Card, Panel } from '../components/Card.jsx';
 import Chip from '../components/Chip.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import Faq from '../components/Faq.jsx';
+import HeroRibbon from '../components/HeroRibbon.jsx';
 import Seo from '../components/Seo.jsx';
 import { SITE } from '../config/site.js';
 import { faqPage, website } from '../lib/jsonld.js';
@@ -43,7 +44,8 @@ export default function Home() {
           faqPage(FAQ),
         ]}
       />
-      <section className="hero">
+      <section className="hero hero-stripe">
+        <HeroRibbon />
         <div className="wrap hero-grid">
           <div className="stack">
             <p className="eyebrow">Product company · Puducherry, India</p>
@@ -54,7 +56,12 @@ export default function Home() {
               never quite arrived.
             </p>
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
-              <Link className="btn btn-primary" to="/products">See what we have built</Link>
+              <Link className="btn btn-primary btn-arrow" to="/products">
+                See what we have built
+                <svg className="cta-arrow" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true">
+                  <path d="M3 1.5 6.5 5 3 8.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
               {" "}
               <Link className="btn btn-ghost" to="/contact">Talk to us</Link>
             </div>
