@@ -21,8 +21,11 @@ function ScrollManager() {
 }
 
 export default function Layout() {
+  // The Home page uses the Stripe-style light theme (.theme-stripe in site.css).
+  // The wrapper is always rendered, so moving between pages never remounts the layout.
+  const { pathname } = useLocation();
   return (
-    <>
+    <div className={pathname === '/' ? 'theme-stripe' : undefined}>
       <ScrollManager />
       <a className="skip" href="#main">Skip to content</a>
       <Header />
@@ -30,6 +33,6 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
