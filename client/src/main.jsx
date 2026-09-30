@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, matchRoutes } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import { routes } from './routes';
 // Self-hosted fonts (replaces the Google Fonts @import in site.css).
@@ -29,6 +29,15 @@ if (pathname.endsWith('.html')) {
   const clean = pathname === '/index.html' ? '/' : pathname.slice(0, -'.html'.length);
   window.history.replaceState(null, '', clean + search + hash);
 }
+
+// Pages loaded on demand (e.g. /launch): load the one for this address before
+// React takes over its pre-rendered HTML, so the page is not rendered twice.
+const lazyMatches = matchRoutes(routes, window.location)?.filter(m => m.route.lazy) ?? [];
+await Promise.all(
+  lazyMatches.map(async m => {
+    Object.assign(m.route, { ...(await m.route.lazy()), lazy: undefined });
+  }),
+);
 
 const router = createBrowserRouter(routes);
 const app = (

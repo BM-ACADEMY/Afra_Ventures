@@ -33,12 +33,22 @@ export default function Header() {
   }, [overHero]);
   const headerClass = overHero && !scrolled && !open ? 'masthead masthead--clear' : 'masthead';
 
+  // Logo on the Home page: the address would not change, so scroll back to the
+  // top instead (instantly for visitors who prefer reduced motion).
+  function onLogoClick(ev) {
+    if (pathname !== '/') return;
+    ev.preventDefault();
+    setOpenOn(null);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  }
+
   // NavLink sets aria-current="page" on the active link, in the pre-rendered
   // HTML as well. The className function stops it adding an "active" class.
   return (
     <header className={headerClass}>
       <div className="wrap masthead-in">
-        <Link className="brand" to="/">
+        <Link className="brand" to="/" onClick={onLogoClick}>
           {/* Logo drawn in the text colour via a CSS mask (see .brand-logo in site.css),
               so the white artwork reads on both the light and the dark theme. */}
           <span className="brand-logo" role="img" aria-label="Afra Ventures" />

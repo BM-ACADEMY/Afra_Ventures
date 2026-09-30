@@ -53,13 +53,24 @@ const COMPONENTS = {
   'brands.html': drafts['./pages/drafts/Brands.jsx'],
 };
 
-const pageRoutes = BUILD_PAGES.map(({ path, file }) => {
+// Pages with their own full-screen design (bare in the registry): outside the
+// site layout, and loaded on demand so other pages never download them.
+const BARE = {
+  'launch.html': () => import('./pages/launch/Launch.jsx'),
+};
+const bareRoutes = BUILD_PAGES.filter(p => p.bare).map(({ path, file }) => {
+  if (!BARE[file]) throw new Error(`No component registered for ${file}`);
+  return { path, lazy: async () => ({ Component: (await BARE[file]()).default }) };
+});
+
+const pageRoutes = BUILD_PAGES.filter(p => !p.bare).map(({ path, file }) => {
   const Page = COMPONENTS[file];
   if (!Page) throw new Error(`No component registered for ${file}`);
   return { path, element: <Page /> };
 });
 
 export const routes = [
+  ...bareRoutes,
   {
     element: <Layout />,
     children: [
