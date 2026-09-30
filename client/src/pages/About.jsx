@@ -139,7 +139,7 @@ export default function About() {
           </div>
           <div className="person">
             <p className="role">Strategic advisor</p>
-            <h4>Mohamed Kamarudeen B</h4>
+            <h4>Kamarudeen B</h4>
             <p>
               Advises the company on growth, partnerships and sales, and acts as authorised
               signatory. Holds no shareholding and no directorship.
