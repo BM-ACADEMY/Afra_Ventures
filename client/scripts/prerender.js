@@ -41,9 +41,14 @@ try {
   for (const page of BUILD_PAGES) {
     const { html, head } = await render(page.path);
     // Function replacements, so "$" in page content is never treated as a pattern.
-    const out = template
+    let out = template
       .replace('<!--app-head-->', () => head)
       .replace('<!--app-html-->', () => builtUrls(html));
+    // Bare pages (e.g. /launch) bring their own styles: ship the site stylesheet
+    // switched off, so it never shows through; the page turns it back on on exit.
+    if (page.bare) {
+      out = out.replace(/<link rel="stylesheet"([^>]*href="\/assets\/[^"]+\.css")/g, '<link rel="stylesheet" media="not all"$1');
+    }
     const target = path.join(dist, outFile(page.file));
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(target, out);

@@ -25,6 +25,9 @@ export const PAGES = [
   { path: '/privacy', file: 'privacy.html', priority: 0.3 },
   { path: '/terms', file: 'terms.html', priority: 0.3 },
   { path: '/404', file: '404.html', noindex: true },
+  // Inauguration invitation: own full-screen design (bare = no site header/footer),
+  // reached by its link only, kept out of search results and the sitemap.
+  { path: '/launch', file: 'launch.html', noindex: true, bare: true },
   { path: '/pilot', file: 'pilot.html', draft: true, noindex: true },
   { path: '/traction', file: 'traction.html', draft: true, noindex: true },
   { path: '/brands', file: 'brands.html', draft: true, noindex: true },

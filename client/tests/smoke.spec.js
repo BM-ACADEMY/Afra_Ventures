@@ -52,9 +52,12 @@ for (const page of LIVE) {
       const p = await context.newPage();
       await p.goto(served(page.path));
       await expect(p.locator('h1')).toBeVisible();
-      await expect(p.locator('header.masthead')).toBeVisible();
-      await expect(p.locator('footer.foot')).toBeVisible();
-      expect((await p.locator('main').innerText()).length).toBeGreaterThan(200);
+      // Bare pages (e.g. /launch) have their own full-screen design: no site header/footer.
+      if (!page.bare) {
+        await expect(p.locator('header.masthead')).toBeVisible();
+        await expect(p.locator('footer.foot')).toBeVisible();
+        expect((await p.locator('main').innerText()).length).toBeGreaterThan(200);
+      }
       await context.close();
     });
   });
