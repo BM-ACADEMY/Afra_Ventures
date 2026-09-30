@@ -1,4 +1,5 @@
-/* Styles of the original "Afra Ventures Inauguration.html", unchanged.
+/* Styles of the original "Afra Ventures Inauguration.html", unchanged, plus the
+   "Slide 1 animations" block added at the end.
    Loaded only while /launch is open (see Launch.jsx). */
 :root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 [hidden]{display:none!important}
@@ -281,3 +282,86 @@ canvas#conf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none
 .scroll{overflow-y:auto;overscroll-behavior:contain;margin-inline:-6px;padding-inline:6px}
 @media (max-height:700px){h1{font-size:28px}h2{font-size:24px}.year{font-size:48px}.env{transform:scale(.85)}}
 @media (prefers-reduced-motion:reduce){.slide,.env .flap,.env .peek{transition:none}.sp,.sf,.bt{animation:none!important;opacity:1;transform:none}.pass:after,.pulse{animation:none}}
+
+/* ===== Slide 1 animations (added) =====
+   Entrance choreography in the style of the reference: blur-reveal with an
+   expo-out ease, background settle, logo drop, line draw, spring pop. It starts
+   when the fonts are ready (launch-script.js adds .s1-wait, then .s1-ready) and
+   replays every time the first slide is shown (.slide.show[data-s="0"]).
+   Movement uses the separate translate/rotate/scale properties, so it adds to the
+   original transform-based effects (pulse, flap, bob) instead of replacing them.
+   Fills are "backwards", so the original open effects (seal fade etc.) still work. */
+@keyframes s1reveal{from{opacity:0;translate:0 26px;scale:.985;filter:blur(7px)}to{opacity:1;translate:0 0;scale:1;filter:blur(0)}}
+@keyframes s1settle{from{opacity:0;scale:1.12}to{opacity:1;scale:1}}
+@keyframes s1fade{from{opacity:1}to{opacity:0}}
+@keyframes s1logo{from{opacity:0;translate:0 -16px;scale:.9}to{opacity:1;translate:0 0;scale:1}}
+@keyframes s1line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes s1pop{0%{opacity:0;scale:.3}60%{opacity:1;scale:1.07}100%{opacity:1;scale:1}}
+@keyframes s1drop{0%{opacity:0;translate:0 -150px;rotate:-8deg}60%{opacity:1;translate:0 10px;rotate:2deg}80%{translate:0 -4px;rotate:-1deg}100%{opacity:1;translate:0 0;rotate:0deg}}
+@keyframes s1float{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -9px;rotate:1.2deg}}
+@keyframes s1shine{0%{background-position:100% 0}35%,100%{background-position:0% 0}}
+@keyframes s1halo{0%,100%{box-shadow:0 6px 16px rgba(0,0,0,.35),0 0 0 0 rgba(243,211,138,0)}50%{box-shadow:0 6px 16px rgba(0,0,0,.35),0 0 24px 7px rgba(243,211,138,.55)}}
+@keyframes s1ring{from{scale:1;opacity:.9}to{scale:1.9;opacity:0}}
+@keyframes s1glow{0%,100%{box-shadow:0 10px 30px rgba(217,164,65,.28)}50%{box-shadow:0 10px 46px rgba(217,164,65,.6)}}
+@keyframes s1twinkle{0%,100%{scale:0;opacity:0}50%{scale:1;opacity:1}}
+@keyframes s1shoot{0%{transform:translateX(0);opacity:0}2%{opacity:1}12%{transform:translateX(720px);opacity:0}100%{transform:translateX(720px);opacity:0}}
+
+/* waiting for fonts: keep the first screen hidden (only when the script runs) */
+.app:before{content:"";position:absolute;inset:0;background:var(--deep);z-index:4;pointer-events:none;opacity:0}
+.s1-wait:before{opacity:1}
+.s1-wait #stars,.s1-wait .top .mini,.s1-wait .top .lang,
+.s1-wait .slide[data-s="0"] :is(.eye,h1,.s1-line,.lead,.env,.cta,.hint){opacity:0}
+
+/* background settle: the navy sky fades up while the stars zoom from 112% */
+.s1-ready:before{animation:s1fade 1.2s cubic-bezier(.16,1,.3,1) backwards}
+.s1-ready #stars{animation:s1settle 1.7s cubic-bezier(.16,1,.3,1) backwards}
+
+/* logo drops in, then the language switch */
+.s1-ready .top .mini{animation:s1logo .9s .3s cubic-bezier(.16,1,.3,1) backwards}
+.s1-ready .top .lang{animation:s1logo .9s .42s cubic-bezier(.16,1,.3,1) backwards}
+
+/* blur-reveal, one after another */
+.s1-ready .slide.show[data-s="0"] .eye{animation:s1reveal .9s .5s cubic-bezier(.16,1,.3,1) backwards}
+.s1-ready .slide.show[data-s="0"] h1{animation:s1reveal .9s .64s cubic-bezier(.16,1,.3,1) backwards}
+.s1-ready .slide.show[data-s="0"] .lead{animation:s1reveal .9s .92s cubic-bezier(.16,1,.3,1) backwards}
+.s1-ready .slide.show[data-s="0"] .cta{animation:s1reveal .9s 1.5s cubic-bezier(.16,1,.3,1) backwards,s1glow 2.6s 2.4s ease-in-out infinite}
+.s1-ready .slide.show[data-s="0"] .hint{animation:s1reveal .9s 1.64s cubic-bezier(.16,1,.3,1) backwards,bob 1.6s 2.5s ease-in-out infinite}
+
+/* gold line draws itself under the heading (added by launch-script.js) */
+.s1-line{display:block;width:120px;height:1px;margin:12px auto 0;background:linear-gradient(90deg,rgba(217,164,65,0),var(--gold) 30%,var(--gold2) 50%,var(--gold) 70%,rgba(217,164,65,0));transform-origin:center}
+.s1-ready .slide.show[data-s="0"] .s1-line{animation:s1line .9s .8s cubic-bezier(.16,1,.3,1) backwards}
+
+/* envelope drops in, then floats (the original pulse keeps running) */
+.s1-ready .slide.show[data-s="0"] .env{animation:s1drop 1s 1.05s backwards,s1float 5s 2.1s ease-in-out infinite}
+.s1-ready .slide.show[data-s="0"] .env.pulse{animation:s1drop 1s 1.05s backwards,s1float 5s 2.1s ease-in-out infinite,pulse 1.8s ease-in-out infinite}
+.slide.show[data-s="0"] .env.open{animation:none!important}
+
+/* the seal springs onto the envelope once it lands, then breathes a gold halo */
+.s1-ready .slide.show[data-s="0"] .env .seal{animation:s1pop .7s 1.85s cubic-bezier(.34,1.56,.64,1) backwards,s1halo 2.2s 2.6s ease-in-out infinite}
+.env .seal::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(243,211,138,.8);opacity:0;pointer-events:none}
+.s1-ready .slide.show[data-s="0"] .env .seal::after{animation:s1ring 2.2s 2.6s ease-out infinite}
+
+/* gold light sweeps across the heading */
+.slide[data-s="0"] .name-big .gname{background:linear-gradient(110deg,#fff 0 40%,#F3D38A 47%,#FFF6DC 50%,#F3D38A 53%,#fff 60% 100%) 100% 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent}
+.s1-ready .slide.show[data-s="0"] .name-big .gname{animation:s1shine 5s 1.8s ease-in-out infinite}
+
+/* gold sparkles around the envelope (added by launch-script.js) */
+.s1-sparkles{position:absolute;inset:0;pointer-events:none;z-index:5;transition:opacity .4s}
+.s1-sparkles i{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;background:#F3D38A;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 4px rgba(243,211,138,.9));scale:0;opacity:0}
+.s1-ready .slide.show[data-s="0"] .s1-sparkles i{animation:s1twinkle 2.4s calc(var(--d) + 2.2s) ease-in-out infinite}
+.env.open .s1-sparkles{opacity:0}
+
+/* on opening: gold flare behind the rising letter, and a glow around it */
+.env:before{content:"";position:absolute;left:50%;top:-40px;width:280px;height:220px;translate:-50% 0;background:radial-gradient(closest-side,rgba(243,211,138,.6),rgba(243,211,138,0));opacity:0;scale:.4;z-index:1;pointer-events:none;transition:opacity .8s ease .5s,scale 1s ease .5s}
+.env.open:before{opacity:1;scale:1}
+.env .peek{transition:transform .8s ease .4s,opacity .3s ease .35s,box-shadow .8s ease .6s}
+.env.open .peek{box-shadow:0 0 0 1px rgba(243,211,138,.5),0 0 40px 8px rgba(243,211,138,.45)}
+
+/* a shooting star now and then (added by launch-script.js) */
+.s1-shoot{position:absolute;top:9%;left:-25%;width:130px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(243,211,138,0),#F3D38A);rotate:18deg;opacity:0;z-index:-1;pointer-events:none}
+.s1-ready .slide.show[data-s="0"] .s1-shoot{animation:s1shoot 7s 3s linear infinite}
+
+@media (prefers-reduced-motion:reduce){
+  .app:before,.s1-ready #stars,.s1-ready .top *,.slide[data-s="0"] *,.slide[data-s="0"] .env .seal::after{animation:none!important}
+  .s1-sparkles,.s1-shoot{display:none}
+}

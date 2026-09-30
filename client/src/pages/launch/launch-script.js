@@ -150,6 +150,39 @@ $("#app").addEventListener("touchend",e=>{ if(sx0===null) return; const dx=e.cha
 applyLang();
   /* ===== END original script ===== */
 
+  /* ===== Slide 1 animations (added; styles in launch.css) ===== */
+  {
+    const env = $("#env"), s0 = $('.slide[data-s="0"]'), app = $("#app");
+    // Start trigger: hold the first screen until the fonts are ready (3 s at most),
+    // so the entrance never plays behind a font swap.
+    app.classList.add("s1-wait");
+    Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 3000))]).then(() => {
+      if (stopped) return; app.classList.remove("s1-wait"); app.classList.add("s1-ready");
+    });
+    // Gold line under the heading
+    const line = document.createElement("i"); line.className = "s1-line"; line.setAttribute("aria-hidden", "true");
+    s0.querySelector("h1").after(line);
+    // 6. sparkles around the envelope edges
+    const sp = document.createElement("div"); sp.className = "s1-sparkles"; sp.setAttribute("aria-hidden", "true");
+    [[-6,14],[104,22],[-5,72],[104,80],[22,-9],[80,-7],[28,107],[74,105]].forEach(([x, y], i) => {
+      const s = document.createElement("i"); s.style.left = x + "%"; s.style.top = y + "%";
+      s.style.setProperty("--d", (i * 0.37).toFixed(2) + "s"); sp.appendChild(s);
+    });
+    env.appendChild(sp);
+    // 10. shooting star behind the first slide
+    const shoot = document.createElement("i"); shoot.className = "s1-shoot"; shoot.setAttribute("aria-hidden", "true");
+    s0.prepend(shoot);
+    // 8. gold burst from the seal as the envelope opens
+    const seal = $(".env .seal");
+    function burst(){ if(still) return; const r=cc.getBoundingClientRect(), e=seal.getBoundingClientRect(); cc.width=r.width; cc.height=r.height;
+      const ox=e.left-r.left+e.width/2, oy=e.top-r.top+e.height/2, cols=["#D9A441","#F3D38A","#FFF6DC","#B8841F"];
+      const ps=Array.from({length:70},(_, i)=>{ const a=i/70*Math.PI*2+Math.random()*.2, v=Math.random()*5+3; return {x:ox,y:oy,vx:Math.cos(a)*v,vy:Math.sin(a)*v,s:Math.random()*3+1.5,c:cols[Math.random()*cols.length|0]}; });
+      let f=0; (function step(){ cx.clearRect(0,0,cc.width,cc.height); cx.globalAlpha=Math.max(0,1-f/55); for(const p of ps){ p.vx*=.95; p.vy=p.vy*.95+.08; p.x+=p.vx; p.y+=p.vy; cx.fillStyle=p.c; cx.beginPath(); cx.arc(p.x,p.y,p.s,0,7); cx.fill(); } cx.globalAlpha=1; if(++f<55) requestAnimationFrame(step); else cx.clearRect(0,0,cc.width,cc.height); })();
+    }
+    const mo = new MutationObserver(() => { if (env.classList.contains("open")) { mo.disconnect(); burst(); } });
+    mo.observe(env, { attributes: true, attributeFilter: ["class"] }); observers.push(mo);
+  }
+
   return () => {
     stopped = true;
     timers.forEach(id => window.clearInterval(id));
