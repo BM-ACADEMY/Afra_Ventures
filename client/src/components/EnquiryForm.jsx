@@ -82,18 +82,22 @@ const STATUS = {
 // but bots that fill every field fill this one too.
 const HONEYPOT = 'company_website';
 
+// Google Sheet copy of every enquiry. Empty = not sent to a sheet.
+const SHEET_URL = import.meta.env.VITE_SHEET_WEBHOOK_URL || '';
+
 // Enquiry form. With no children it renders the contact page fields; a page
 // can pass its own fields (children), submit label and footer instead.
 //   <EnquiryForm send="email" />
 //   send: 'email' (default) | 'whatsapp' — where the fallback hands the enquiry.
 //
-// With a form service configured (VITE_FORM_ENDPOINT) the enquiry is POSTed
-// as JSON: idle → sending → sent | error. Only a 2xx response counts as sent;
+// With an endpoint configured the enquiry is POSTed as JSON: the n8n webhook
+// (VITE_N8N_WEBHOOK_URL in .env), else a form service (VITE_FORM_ENDPOINT).
+// idle → sending → sent | error. Only a 2xx response counts as sent;
 // anything else keeps the visitor's text in the form and says so.
 // Without one, it is handed to the visitor's email app or WhatsApp.
 export default function EnquiryForm({
   send = 'email',
-  endpoint = SITE.formEndpoint,
+  endpoint = import.meta.env.VITE_N8N_WEBHOOK_URL || SITE.formEndpoint,
   style = { gap: '1.1rem' },
   submitLabel = 'Send enquiry',
   footer = CONTACT_FOOTER,
@@ -121,6 +125,21 @@ export default function EnquiryForm({
     if (!data.name || !data.email) {
       setState('missing');
       return;
+    }
+
+    // Copy to the Google Sheet (Apps Script web app, VITE_SHEET_WEBHOOK_URL in .env).
+    // Fire-and-forget: Apps Script sends no CORS headers, so the reply cannot be
+    // read, and the visitor's status depends only on the main endpoint below.
+    // text/plain keeps it a simple request (no preflight); keepalive lets it
+    // finish even when the fallback navigates away to the email app.
+    if (SHEET_URL) {
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data),
+      }).catch(() => {});
     }
 
     if (endpoint) {
