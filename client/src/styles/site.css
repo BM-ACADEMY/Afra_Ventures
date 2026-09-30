@@ -981,11 +981,11 @@ td strong { color: var(--ink); }
 }
 
 /* ============================================================
-   Home page — Stripe-style LIGHT theme, always (.theme-stripe, set by Layout on "/")
-   Applies whatever the visitor's system theme is, so Home always looks like the
-   Stripe reference: white page, pale blue-grey bands, navy/slate text, Stripe
-   purple, Inter type, flat header line and buttons. Other pages still follow the
-   system light/dark setting. Kept last in the file so it wins over dark-theme rules.
+   Stripe-style LIGHT theme, always (.theme-stripe, set by Layout on every page)
+   Applies whatever the visitor's system theme is, so every page looks like the
+   Stripe reference: white page, pale blue-grey bands, royal-blue text, Inter
+   type, flat header line and midnight buttons. Kept last in the file so it wins
+   over dark-theme rules.
    ============================================================ */
 :root .theme-stripe {
   --bg: #ffffff; --surface: #ffffff; --surface-2: #f6f9fc;
@@ -1005,7 +1005,7 @@ td strong { color: var(--ink); }
   color: var(--ink);
   font-family: var(--font-sans);
 }
-/* page edges and scrollbars light too while Home is shown */
+/* page edges and scrollbars light too */
 :root:has(.theme-stripe) { color-scheme: light; }
 body:has(.theme-stripe) { background: #ffffff; }
 
@@ -1025,14 +1025,15 @@ body:has(.theme-stripe) { background: #ffffff; }
 :root .theme-stripe .btn-primary { background: #111827; }
 :root .theme-stripe .btn-primary:hover { background: #374151; }
 
-/* hero: Stripe's plain one-line kicker instead of the mono eyebrow */
-:root .theme-stripe .hero-stripe .eyebrow {
+/* page intro (Home hero, and the first section of every other page):
+   Stripe's plain one-line kicker instead of the mono eyebrow */
+:root .theme-stripe main > section:first-of-type .eyebrow {
   font-family: var(--font-sans); text-transform: none; letter-spacing: 0;
   font-size: .9375rem; font-weight: 500; color: var(--ink);
 }
-:root .theme-stripe .hero-stripe .eyebrow::before { display: none; }
-:root .theme-stripe .hero-stripe h1 { font-weight: 600; letter-spacing: -.04em; }
-:root .theme-stripe .hero-stripe .lede { font-weight: 500; }
+:root .theme-stripe main > section:first-of-type .eyebrow::before { display: none; }
+:root .theme-stripe main > section:first-of-type h1 { font-weight: 600; letter-spacing: -.04em; }
+:root .theme-stripe main > section:first-of-type .lede { font-weight: 500; }
 
 /* bigger, bolder ribbon reaching further left, like Stripe's */
 :root .theme-stripe .hero-ribbon svg { height: 100%; right: -3vw; }
