@@ -1048,9 +1048,50 @@ body:has(.theme-stripe) { background: #ffffff; }
   top: 0;
   left: calc(50% - 290px);
   height: 100%;
-  width: auto;
-  max-width: none;
+  aspect-ratio: 1200 / 841;
   user-select: none;
+  transform: scale(1.08); /* spare edge so the drift never shows a cut-off side */
+  animation: wave-drift 10s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hero-wave img {
+  display: block; width: 100%; height: 100%; max-width: none;
+  animation: wave-hue 12s ease-in-out infinite alternate; /* colours shift along the ribbon */
+}
+
+/* band of light running along the lines, only where the artwork is drawn */
+.hero-wave-sheen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask: var(--wave) center / 100% 100% no-repeat;
+  mask: var(--wave) center / 100% 100% no-repeat;
+}
+.hero-wave-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100%;
+  background: linear-gradient(110deg,
+    transparent 36%, rgba(255, 255, 255, .55) 46%, rgba(255, 255, 255, .85) 50%, rgba(255, 255, 255, .55) 54%, transparent 64%);
+  animation: wave-sheen 4.5s cubic-bezier(.45, .05, .55, .95) infinite;
+  will-change: transform;
+}
+@keyframes wave-drift {
+  0%   { transform: scale(1.08) translate(0, 0) rotate(0deg); }
+  50%  { transform: scale(1.12) translate(-18px, 10px) rotate(1.2deg); }
+  100% { transform: scale(1.09) translate(14px, -10px) rotate(-1deg); }
+}
+@keyframes wave-hue {
+  from { filter: hue-rotate(-18deg) saturate(1.05); }
+  to   { filter: hue-rotate(22deg) saturate(1.2); }
+}
+@keyframes wave-sheen {
+  from { transform: translateX(-34%); }
+  to   { transform: translateX(34%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-ribbon .hero-wave, .hero-wave img { animation: none; }
+  .hero-wave-sheen { display: none; }
 }
 @media (max-width: 900px) {
   .hero-ribbon .hero-wave {
