@@ -84,6 +84,8 @@ $("#pl").addEventListener("click",()=>{ if(count<15){count++; $("#cnt").textCont
 
 const cleanPhone=p=>(p||"").replace(/\D/g,"").replace(/^91(?=\d{10}$)/,"").replace(/^0(?=\d{10}$)/,"");
 const PICKEN={learn:"Learn (student/parent)",earn:"Earn (job seeker/HR)",grow:"Grow (business owner)",own:"Own (property)",celebrate:"Celebrate (friend & family)"};
+const GOOGLE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyGxjDY14iHQgfZTyVXey6t_pJhTZ3HIp5qj3VwlS3Lf8-7QojKTi2p5DwoFakyMWaZ/exec";
+
 function send(r){
   reply=r; const ph=cleanPhone($("#ph").value), err=$("#phErr");
   if(!name){ go(6); return; }
@@ -93,6 +95,24 @@ function send(r){
   const L=["வணக்கம்! Afra Ventures Pvt Ltd திறப்பு விழா – என் பதில்","","Pass: "+$("#passNo").textContent,"Name: "+name,"Mobile: "+ph,"Reply: "+st];
   if(r!=="no") L.push("People: "+count);
   if(pick) L.push("My step: "+PICKEN[pick]);
+  
+  // Save to Google Sheets via fetch (fire and forget)
+  if (GOOGLE_WEB_APP_URL !== "YOUR_GOOGLE_WEB_APP_URL_HERE") {
+    fetch(GOOGLE_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({
+        pass: $("#passNo").textContent,
+        name: name,
+        mobile: ph,
+        reply: st,
+        people: r !== "no" ? count : 0,
+        step: pick ? PICKEN[pick] : ""
+      })
+    }).catch(e => console.error("Error saving to sheets:", e));
+  }
+
   const url="https://wa.me/"+EVENT.whatsapp+"?text="+encodeURIComponent(L.join("\n"));
   $("#waAgain").href=url;
   if(r!=="no"){ const f=s=>s.replace(/[-:]/g,"")+"00"; const dd=EVENT.startISO? f(EVENT.startISO)+"/"+f(EVENT.endISO||EVENT.startISO) : "20261001/20261002"; const p=new URLSearchParams({action:"TEMPLATE",text:"Afra Ventures Pvt Ltd – திறப்பு விழா",dates:dd,ctz:"Asia/Kolkata",details:"You are our chief guest. "+$("#passNo").textContent,location:"1st Floor, 78 Lenin Street, Kosapalayam, Puducherry 605013"}); $("#calBtn").href="https://calendar.google.com/calendar/render?"+p; $("#calBtn").hidden=false; }
