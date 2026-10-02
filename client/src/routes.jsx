@@ -56,7 +56,7 @@ const COMPONENTS = {
 // Pages with their own full-screen design (bare in the registry): outside the
 // site layout, and loaded on demand so other pages never download them.
 const BARE = {
-  'launch.html': () => import('./pages/launch/Launch.jsx'),
+  'launch.html': () => import('./pages/Launch.jsx'),
 };
 const bareRoutes = BUILD_PAGES.filter(p => p.bare).map(({ path, file }) => {
   if (!BARE[file]) throw new Error(`No component registered for ${file}`);
