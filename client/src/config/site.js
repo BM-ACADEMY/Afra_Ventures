@@ -6,9 +6,9 @@ export const SITE = {
   legalName: 'Afra Ventures Private Limited',
   url: 'https://afraventures.in',
   email: 'hello@afraventures.in', // ⚠ placeholder — confirm
-  phoneDisplay: '+91 99449 40051', // ⚠ placeholder — confirm
-  phoneTel: '+919944940051', // ⚠ placeholder — confirm
-  whatsapp: '919944940051', // ⚠ placeholder — confirm
+  phoneDisplay: '+91 80153 59971',
+  phoneTel: '+918015359971',
+  whatsapp: '918015359971',
   cin: 'U62011PY2026PTC009819',
   foundingDate: '2026-09-12',
   description:

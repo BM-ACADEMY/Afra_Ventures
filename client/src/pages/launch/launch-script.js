@@ -4,7 +4,7 @@
 // cleanly when the visitor leaves the page (timers, animation frames, window
 // listeners, observers), and restores the <html> lang it changes.
 /* ===== Event details: edit, then republish ===== */
-const EVENT={dateISO:"2026-10-05",startISO:"",endISO:"",whatsapp:"919944940051"};  /* set startISO e.g. "2026-10-01T10:00" once the time is fixed */
+const EVENT={dateISO:"2026-10-05",startISO:"",endISO:"",whatsapp:"918015359971"};  /* set startISO e.g. "2026-10-01T10:00" once the time is fixed */
 
 export function start() {
   const html = document.documentElement;
