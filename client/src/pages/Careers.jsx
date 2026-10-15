@@ -47,7 +47,7 @@ export default function Careers() {
             <div className="rule" />
             <h4>You will work in person</h4>
             <p>
-              This is an office job in Kosapalayam, Puducherry. We are not set up to hire remotely
+              This is an office job in Kuyavarpalayam, Puducherry. We are not set up to hire remotely
               yet.
             </p>
           </div>

@@ -9,6 +9,10 @@ import Notice from '../components/Notice.jsx';
 import ScreenFrame from '../components/ScreenFrame.jsx';
 import Seo from '../components/Seo.jsx';
 import { breadcrumb, faqPage, softwareApp } from '../lib/jsonld.js';
+import shotDashboard from '../assets/gymdesk/owner-dashboard.webp';
+import shotMember from '../assets/gymdesk/member-app.webp';
+import shotRenewals from '../assets/gymdesk/renewals.webp';
+import shotPlans from '../assets/gymdesk/subscription-tiers.webp';
 
 const FAQ = [
   {
@@ -481,46 +485,48 @@ export default function GymDesk() {
           <p className="eyebrow">Inside the product</p>
           <h2>Screens from the beta.</h2>
           <p className="prose">
-            These are placeholders until the beta screenshots are cleared of real member
-            information. We would rather show you nothing than show you invented numbers.
+            Taken from the beta build, running on test accounts. The figures are test data, not
+            results from a real gym.
           </p>
         </div>
         {/*
-          DEVELOPER NOTE — replacing these four placeholders
-          ==================================================
-          When a screenshot is ready, save it in client/public/screens/ and pass it to its
-          <ScreenFrame>, e.g.:
-            <ScreenFrame title="Owner dashboard" caption="…" src="/screens/owner-dashboard.png"
-                         alt="<describe the screen>" />
-          ScreenFrame then shows <img width="1600" height="1000"> instead of the placeholder.
-          Keep the title and caption exactly as written.
-
-          Image requirements
-            - 1600 x 1000 px, PNG, 16:10 aspect ratio (matches the frame, so nothing crops)
-            - Capture at 1600px browser width, 100% zoom, light theme
-            - Export under 300 KB each; run through TinyPNG or similar
-
-          MUST be redacted before export — replace, do not blur:
-            - Member names          -> plausible fake names
-            - Phone numbers, email  -> 90000 00000 style placeholders
-            - Photos of members     -> remove entirely
-            - Gym name / logo       -> a fictional gym name
-            - Any real rupee totals -> realistic but invented figures
-
-          The four screens to capture, in this order:
-            1. owner-dashboard.png  — today's collections, check-ins, expiring count
-            2. members.png          — member list with search, plan status, payment state
-            3. renewals.png         — the "expiring in 14 days" list with follow-up state
-            4. plan-builder.png     — an AI-drafted plan open for trainer review
-
-          Rule: no screen may show a figure we have not actually achieved. These illustrate
-          the interface, not results.
+          Screenshots live in client/src/assets/gymdesk/. Before replacing one, redact it —
+          replace, do not blur: member names, phone numbers, emails, member photos, gym name
+          and any real rupee totals. No screen may show a figure we have not actually achieved.
         */}
         <div className="screens">
-          <ScreenFrame title="Owner dashboard" caption="Today's collections, check-ins and expiries" />
-          <ScreenFrame title="Members" caption="Search, plan status and payment history" />
-          <ScreenFrame title="Renewals" caption="Expiring this week, with follow-up state" />
-          <ScreenFrame title="Plan builder" caption="AI draft, reviewed by a trainer" />
+          <ScreenFrame
+            title="Owner dashboard"
+            caption="Today's check-ins, active members, expiries and revenue"
+            src={shotDashboard}
+            width={1600}
+            height={758}
+            alt="GymDesk owner dashboard with cards for today's check-ins, active members, memberships expiring this week, revenue this month and pending payments, above a list of members needing attention."
+          />
+          <ScreenFrame
+            title="Member app"
+            caption="Plan status, days remaining and check-in QR"
+            src={shotMember}
+            width={1600}
+            height={751}
+            alt="GymDesk member dashboard showing the member's plan, days remaining, current streak, a quick check-in QR button and the next PT session."
+          />
+          <ScreenFrame
+            title="Renewals"
+            caption="Renewal date, freeze and plan switching"
+            src={shotRenewals}
+            width={1574}
+            height={896}
+            alt="GymDesk subscription plan screen showing the current plan, renewal date, days remaining, Renew and Unfreeze buttons, and other plans the member can switch to."
+          />
+          <ScreenFrame
+            title="Subscription tiers"
+            caption="Member and staff limits and features per tier"
+            src={shotPlans}
+            width={1600}
+            height={762}
+            alt="GymDesk plan creation screen listing subscription tiers as cards, each with its member and sub-admin limits, included features, and Edit and Archive buttons."
+          />
         </div>
       </Band>
       <Band wrap="stack-lg">

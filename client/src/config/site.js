@@ -14,7 +14,7 @@ export const SITE = {
   description:
     'Afra Ventures is a women-led software product company in Puducherry, India, building SaaS platforms and AI-assisted tools for gyms, colleges, recruiters and small businesses.',
   address: {
-    street: '78 Lenin Street, Kosapalayam',
+    street: 'First Floor, 78 Lenin Street, Kuyavarpalayam',
     locality: 'Puducherry',
     region: 'Puducherry',
     postalCode: '605013',

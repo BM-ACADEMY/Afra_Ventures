@@ -115,7 +115,7 @@ function send(r){
 
   const url="https://wa.me/"+EVENT.whatsapp+"?text="+encodeURIComponent(L.join("\n"));
   $("#waAgain").href=url;
-  if(r!=="no"){ const f=s=>s.replace(/[-:]/g,"")+"00"; const dd=EVENT.startISO? f(EVENT.startISO)+"/"+f(EVENT.endISO||EVENT.startISO) : "20261005/20261006"; const p=new URLSearchParams({action:"TEMPLATE",text:"Afra Ventures Pvt Ltd – திறப்பு விழா",dates:dd,ctz:"Asia/Kolkata",details:"You are our chief guest. "+$("#passNo").textContent,location:"1st Floor, 78 Lenin Street, Kosapalayam, Puducherry 605013"}); $("#calBtn").href="https://calendar.google.com/calendar/render?"+p; $("#calBtn").hidden=false; }
+  if(r!=="no"){ const f=s=>s.replace(/[-:]/g,"")+"00"; const dd=EVENT.startISO? f(EVENT.startISO)+"/"+f(EVENT.endISO||EVENT.startISO) : "20261005/20261006"; const p=new URLSearchParams({action:"TEMPLATE",text:"Afra Ventures Pvt Ltd – திறப்பு விழா",dates:dd,ctz:"Asia/Kolkata",details:"You are our chief guest. "+$("#passNo").textContent,location:"1st Floor, 78 Lenin Street, Kuyavarpalayam, Puducherry 605013"}); $("#calBtn").href="https://calendar.google.com/calendar/render?"+p; $("#calBtn").hidden=false; }
   const pass=$("#pass"); $("#passSlot").appendChild(pass);
   if(r==="no"){ pass.classList.remove("ok");
     $("#doneH").innerHTML = lang==="ta"?"உங்கள் வாழ்த்துகளுக்கு <em>நன்றி</em>":"Thank you for <em>your wishes</em>";

@@ -12,7 +12,7 @@ export default function Contact() {
       <Seo
         file="contact.html"
         title="Contact Afra Ventures | Puducherry"
-        description="Talk to Afra Ventures about a product pilot, a college or employer partnership, or custom software. Registered office in Kosapalayam, Puducherry."
+        description="Talk to Afra Ventures about a product pilot, a college or employer partnership, or custom software. Registered office in Kuyavarpalayam, Puducherry."
         jsonLd={[
           breadcrumb(["Contact", "contact.html"]),
           contactPage("contact.html"),
