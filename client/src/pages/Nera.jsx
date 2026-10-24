@@ -12,8 +12,8 @@ export default function Nera() {
     <>
       <Seo
         file="nera.html"
-        title="Nera — WhatsApp automation and customer messaging | Afra Ventures"
-        description="Nera answers every WhatsApp enquiry in seconds, follows up with anyone who goes quiet, and runs campaigns on Meta-approved templates over the official WhatsApp Business API. In development."
+        title="WhatsApp Business Automation Software: Nera | Afra Ventures"
+        description="Nera is being built to answer WhatsApp enquiries in seconds and follow up on the official Business API, so leads don't go cold. Talk to us about it."
         jsonLd={[
           breadcrumb(["Products", "products.html"], ["Nera", "nera.html"]),
           softwareApp({

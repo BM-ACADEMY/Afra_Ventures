@@ -58,8 +58,8 @@ export default function GymDesk() {
     <>
       <Seo
         file="gymdesk.html"
-        title="GymDesk — Gym management software for Indian gyms | Afra Ventures"
-        description="GymDesk is gym management software for memberships, attendance and payments, with renewal reminders and enquiry follow-up that send automatically and AI-assisted workout and diet plans. In beta testing. Request a pilot."
+        title="Gym Management Software India: GymDesk | Afra Ventures"
+        description="GymDesk tracks members, attendance and dues, and sends renewal reminders automatically so fewer members lapse. Now in beta. Apply for a free pilot."
         jsonLd={[
           breadcrumb(["Products", "products.html"], ["GymDesk", "gymdesk.html"]),
           softwareApp({

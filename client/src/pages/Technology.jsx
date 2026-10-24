@@ -10,8 +10,8 @@ export default function Technology() {
     <>
       <Seo
         file="technology.html"
-        title="How we build | Afra Ventures"
-        description="The stack and engineering practice behind Afra Ventures products: React and Node, PostgreSQL, multi-tenant architecture, workflow automation, and AI used only where it measurably helps."
+        title="Custom Software Development in Puducherry | Afra Ventures"
+        description="Custom software built on React, Node and PostgreSQL, hosted in India and maintained by the team that wrote it. Describe your project to get started."
         jsonLd={[
           breadcrumb(["Technology", "technology.html"]),
         ]}

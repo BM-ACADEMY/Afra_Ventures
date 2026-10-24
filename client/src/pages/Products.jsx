@@ -40,8 +40,8 @@ export default function Products() {
     <>
       <Seo
         file="products.html"
-        title="Products | Afra Ventures"
-        description="GymDesk for gym operations, Nera for WhatsApp automation, and Velai Vaaippu for jobs and campus placement. Each product listed with its real development stage."
+        title="Business Management Software Products | Afra Ventures"
+        description="Compare our business management software for gyms, WhatsApp enquiries and campus placement, each labelled live, beta or in development. Find your fit."
         jsonLd={[
           breadcrumb(["Products", "products.html"]),
         ]}

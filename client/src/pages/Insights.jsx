@@ -10,8 +10,8 @@ export default function Insights() {
     <>
       <Seo
         file="insights.html"
-        title="Insights | Afra Ventures"
-        description="Notes from building operational software: why gym renewals lapse, what a placement cell needs from software, and how to keep books for several brands at once."
+        title="Business Software Insights: Gyms, Colleges | Afra Ventures"
+        description="Practical notes on gym renewals, placement cell software and multi-brand bookkeeping, written for the people who run the work. Read the latest insights."
         jsonLd={[
           breadcrumb(["Insights", "insights.html"]),
         ]}

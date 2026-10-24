@@ -11,8 +11,8 @@ export default function Careers() {
     <>
       <Seo
         file="careers.html"
-        title="Careers | Afra Ventures, Puducherry"
-        description="Build software products from Puducherry. Open roles and how hiring works at Afra Ventures, plus how to apply when nothing listed fits you."
+        title="Software Jobs and Careers in Puducherry | Afra Ventures"
+        description="Open roles in full-stack development, product support and business development at our Puducherry office, with a clear two-week hiring process. Apply now."
         jsonLd={[
           breadcrumb(["Careers", "careers.html"]),
         ]}

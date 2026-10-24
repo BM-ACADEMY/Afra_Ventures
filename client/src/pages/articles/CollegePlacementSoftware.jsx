@@ -5,8 +5,9 @@ export default function CollegePlacementSoftware() {
   return (
     <ArticleLayout
       file="college-placement-software.html"
+      title="College Placement Software: What Cells Need | Afra Ventures"
       headline="What a college placement cell actually needs from software"
-      description="Placement cells are measured on numbers they cannot easily produce. A look at what the work really involves, and the five things software has to get right."
+      description="The five things placement software must get right, from tracking each eligible student to producing the annual report. Read before choosing a vendor."
       summary="The five things placement software has to get right, from the cell's side of the desk."
       crumb="Placement software"
       topic="Colleges"

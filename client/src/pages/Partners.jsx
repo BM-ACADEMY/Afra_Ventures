@@ -11,8 +11,8 @@ export default function Partners() {
     <>
       <Seo
         file="partners.html"
-        title="For colleges, employers and institutions | Afra Ventures"
-        description="Work with Afra Ventures: placement platform and training for colleges, hiring support for employers, and custom product engineering for institutions in Puducherry and Tamil Nadu."
+        title="Custom Business Applications & Partnerships | Afra Ventures"
+        description="Placement software and training for colleges, hiring support for employers and custom business applications in Tamil Nadu. Find the right way to start."
         jsonLd={[
           breadcrumb(["Partners", "partners.html"]),
         ]}

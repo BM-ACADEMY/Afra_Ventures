@@ -12,8 +12,8 @@ export default function VelaiVaaippu() {
     <>
       <Seo
         file="velai-vaaippu.html"
-        title="Velai Vaaippu — Free skill assessment, resume builder and jobs | Afra Ventures"
-        description="Free skill assessment, resume builder and job matching for job seekers and students in Tamil Nadu and Puducherry, with placement tracking and drive management for college placement cells and assessed shortlists for employers."
+        title="Recruitment & College Placement Software | Afra Ventures"
+        description="Velai Vaaippu gives employers assessed shortlists and placement cells one record for every student in Tamil Nadu and Puducherry. Live now. Start today."
         jsonLd={[
           breadcrumb(["Products", "products.html"], ["Velai Vaaippu", "velai-vaaippu.html"]),
           softwareApp({

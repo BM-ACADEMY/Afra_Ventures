@@ -7,8 +7,8 @@ export default function Privacy() {
     <>
       <Seo
         file="privacy.html"
-        title="Privacy policy | Afra Ventures"
-        description="How Afra Ventures collects, uses, stores and deletes personal information."
+        title="Privacy Policy: How We Use Your Data | Afra Ventures"
+        description="What we collect through afraventures.in, why we use it, how long we keep it and how to have it corrected or deleted. Read the policy or write to us."
       />
       <Band>
         <div className="stack" style={{ maxWidth: '68ch' }}>
