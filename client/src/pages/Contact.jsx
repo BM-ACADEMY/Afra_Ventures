@@ -58,7 +58,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <dt>Address</dt>
-                  <dd>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}, India</dd>
+                  <dd>{SITE.address.street}, {SITE.address.locality} (Pondicherry) {SITE.address.postalCode}, India</dd>
                 </div>
                 <div>
                   <dt>CIN</dt>

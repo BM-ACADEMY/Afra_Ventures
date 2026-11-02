@@ -49,7 +49,7 @@ export default function Footer() {
             <p className="small muted" style={{ marginTop: '.85rem' }}>
               {SITE.address.street}
               <br />
-              {SITE.address.locality} {SITE.address.postalCode}
+              {SITE.address.locality} (Pondicherry) {SITE.address.postalCode}
               <br />
               India
             </p>

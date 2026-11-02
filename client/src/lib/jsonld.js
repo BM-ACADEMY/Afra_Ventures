@@ -7,7 +7,10 @@ const pageUrl = file => SITE.url + urlPath(file);
 const ctx = type => ({ '@context': 'https://schema.org', '@type': type });
 
 export const organization = () => ({
-  ...ctx('Organization'),
+  '@context': 'https://schema.org',
+  // ProfessionalService is a LocalBusiness subtype: lets Google tie the
+  // company to its Puducherry office for local search.
+  '@type': ['Organization', 'ProfessionalService'],
   '@id': ORG_ID,
   name: SITE.name,
   legalName: SITE.legalName,
@@ -25,9 +28,22 @@ export const organization = () => ({
     postalCode: SITE.address.postalCode,
     addressCountry: SITE.address.country,
   },
-  areaServed: ['IN'],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:30',
+      closes: '18:30',
+    },
+  ],
+  areaServed: [
+    { '@type': 'City', name: 'Puducherry' },
+    { '@type': 'State', name: 'Tamil Nadu' },
+    { '@type': 'Country', name: 'India' },
+  ],
   knowsAbout: [
     'Software as a service',
+    'Custom software development',
     'Gym management software',
     'Campus placement software',
     'Skill assessment',
