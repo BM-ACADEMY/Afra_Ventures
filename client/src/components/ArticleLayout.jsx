@@ -19,8 +19,8 @@ const longDate = iso =>
 export default function ArticleLayout({
   file,
   headline,
-  title = headline, // <title>; the live articles use the headline
-  description, // meta description
+  title, // optional override; normally from src/config/seo.js
+  description, // optional override; normally from src/config/seo.js
   summary, // shorter Article JSON-LD description
   crumb, // short name for the breadcrumb
   topic, // eyebrow label, e.g. "Gyms"

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect } from 'react';
 import { PAGES, urlPath } from '../config/pages.js';
+import { SEO } from '../config/seo.js';
 import { SITE } from '../config/site.js';
 import { organization } from '../lib/jsonld.js';
 
@@ -11,14 +12,17 @@ export const HeadContext = createContext(null);
 const MARK = 'data-seo';
 
 function buildTags({
-  title,
-  description,
+  title: titleProp,
+  description: descriptionProp,
   file,
   type = 'website',
   noindex,
   image = SITE.ogImage,
   jsonLd = [],
 }) {
+  // Title and description come from src/config/seo.js unless a page overrides them.
+  const title = titleProp ?? SEO[file]?.title;
+  const description = descriptionProp ?? SEO[file]?.description;
   const url = SITE.url + urlPath(file);
   const meta = (key, name, content) => ({ tag: 'meta', attrs: { [key]: name, content } });
   const tags = [

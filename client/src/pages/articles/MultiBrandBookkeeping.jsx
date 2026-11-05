@@ -5,9 +5,7 @@ export default function MultiBrandBookkeeping() {
   return (
     <ArticleLayout
       file="multi-brand-bookkeeping.html"
-      title="Multi-Brand Bookkeeping for Small Businesses | Afra Ventures"
       headline="Running several brands on one set of books"
-      description="Running several lines of business under one company? Four changes so each brand's numbers report for themselves, every month. Read the full guide."
       summary="How to keep per-brand profit and loss visible inside one company."
       crumb="Multi-brand books"
       topic="Finance"

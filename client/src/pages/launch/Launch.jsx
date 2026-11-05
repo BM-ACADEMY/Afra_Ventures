@@ -48,8 +48,6 @@ export default function Launch() {
     <>
       <Seo
         file="launch.html"
-        title="Afra Ventures Inauguration"
-        description="Afra Ventures Pvt Ltd inauguration. A special invitation is waiting for you."
       />
       {/* Styles live only while this page is open, so they never reach the rest of the site. */}
       <style dangerouslySetInnerHTML={{ __html: css + '\n' + MOUNT_CSS }} />

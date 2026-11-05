@@ -11,8 +11,6 @@ export default function Contact() {
     <>
       <Seo
         file="contact.html"
-        title="Contact Us for Business Software Solutions | Afra Ventures"
-        description="Ask about a GymDesk pilot, a placement partnership or custom software. A person replies within one working day. Call, WhatsApp or send an enquiry today."
         jsonLd={[
           breadcrumb(["Contact", "contact.html"]),
           contactPage("contact.html"),

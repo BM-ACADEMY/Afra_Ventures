@@ -12,8 +12,6 @@ export default function VelaiVaaippu() {
     <>
       <Seo
         file="velai-vaaippu.html"
-        title="Recruitment & College Placement Software | Afra Ventures"
-        description="Velai Vaaippu gives employers assessed shortlists and placement cells one record for every student in Tamil Nadu and Puducherry. Live now. Start today."
         jsonLd={[
           breadcrumb(["Products", "products.html"], ["Velai Vaaippu", "velai-vaaippu.html"]),
           softwareApp({
