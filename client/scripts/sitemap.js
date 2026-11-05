@@ -6,13 +6,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+// Public address with a trailing slash ('/about' → '/about/'); keep in step with src/config/pages.js.
+const publicPath = p => (p === '/' ? '/' : `${p.replace(/\/$/, '')}/`);
+
 const entry = pathToFileURL(path.resolve('dist-ssr/entry-server.js')).href;
 const { PAGES, SITE } = await import(entry);
 
 const today = new Date().toISOString().slice(0, 10);
 const urls = PAGES.filter(p => !p.draft && !p.noindex).map(
   p => `  <url>
-    <loc>${SITE.url}${p.path}</loc>
+    <loc>${SITE.url}${publicPath(p.path)}</loc>
     <lastmod>${today}</lastmod>
     <priority>${p.priority.toFixed(1)}</priority>
   </url>`,

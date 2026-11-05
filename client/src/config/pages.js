@@ -3,9 +3,14 @@
 
 export const INCLUDE_DRAFTS = import.meta.env.VITE_INCLUDE_DRAFTS === 'true';
 
-// Public address of a page file, without ".html": 'about.html' → '/about', 'index.html' → '/'.
-// The build still writes dist/about.html; the host serves it at /about (Vercel cleanUrls).
-export const urlPath = file => (file === 'index.html' ? '/' : `/${file.replace(/\.html$/, '')}`);
+// Public address of a page, with a trailing slash: '/about' → '/about/', '/' → '/'.
+// The build writes one folder per page (dist/about/index.html). Hostinger (Apache)
+// serves that at /about/ and 301-redirects /about → /about/, so canonical tags, the
+// sitemap and breadcrumbs must use the slash form or Google reports "Redirect error".
+export const publicPath = path => (path === '/' ? '/' : `${path.replace(/\/$/, '')}/`);
+
+// Same, from a page file: 'about.html' → '/about/', 'index.html' → '/'.
+export const urlPath = file => publicPath(file === 'index.html' ? '/' : `/${file.replace(/\.html$/, '')}`);
 
 export const PAGES = [
   { path: '/', file: 'index.html', priority: 1.0 },

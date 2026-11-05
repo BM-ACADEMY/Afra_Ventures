@@ -5,7 +5,7 @@
 // 2. Raw-HTML SEO check: every page's HTML in dist/ (about/index.html, …), read as text (no JavaScript runs), must have
 //    - exactly one non-empty <title>
 //    - a non-empty <meta name="description">
-//    - <link rel="canonical"> = https://afraventures.in<path>  (clean URL: /about, / for home)
+//    - <link rel="canonical"> = https://afraventures.in<path>  (trailing slash: /about/, / for home)
 //    - exactly one <h1>
 //    - JSON-LD that parses (every <script type="application/ld+json">)
 //    - noindex on drafts and 404, and never on live pages
@@ -15,6 +15,9 @@
 // because Vite also takes VITE_INCLUDE_DRAFTS from .env files that plain Node never sees.
 import fs from 'node:fs';
 import path from 'node:path';
+
+// Public address with a trailing slash ('/about' → '/about/'); keep in step with src/config/pages.js.
+const publicPath = p => (p === '/' ? '/' : `${p.replace(/\/$/, '')}/`);
 
 // dist/ location of a page's HTML ('about.html' → 'about/index.html').
 export const outFile = file =>
@@ -72,7 +75,7 @@ export function checkBuild({ BUILD_PAGES, DRAFT_FILES, SITE }) {
     else if (!attr(desc[0], 'content')?.trim()) fail('meta description is empty');
 
     const canon = tags(head, /<link\s[^>]*rel="canonical"[^>]*>/g);
-    const wantCanon = SITE.url + page.path;
+    const wantCanon = SITE.url + publicPath(page.path);
     if (canon.length !== 1) fail(`expected 1 canonical link, found ${canon.length}`);
     else if (attr(canon[0], 'href') !== wantCanon)
       fail(`canonical is ${attr(canon[0], 'href')}, expected ${wantCanon}`);

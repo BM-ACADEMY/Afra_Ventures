@@ -13,6 +13,9 @@ import path from 'node:path';
 import { createServer } from 'vite';
 import { checkBuild, outFile } from './check-build.js';
 
+// Public address with a trailing slash ('/about' → '/about/'); keep in step with src/config/pages.js.
+const publicPath = p => (p === '/' ? '/' : `${p.replace(/\/$/, '')}/`);
+
 const dist = path.resolve('dist');
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 for (const mark of ['<!--app-head-->', '<!--app-html-->']) {
@@ -63,7 +66,7 @@ fs.rmSync(path.join(dist, '.vite'), { recursive: true, force: true });
 const today = new Date().toISOString().slice(0, 10);
 const urls = PAGES.filter(p => !p.draft && !p.noindex).map(
   p => `  <url>
-    <loc>${SITE.url}${p.path}</loc>
+    <loc>${SITE.url}${publicPath(p.path)}</loc>
     <lastmod>${today}</lastmod>
     <priority>${p.priority.toFixed(1)}</priority>
   </url>`,
