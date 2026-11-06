@@ -21,7 +21,7 @@ const PRODUCTS = [
     stage: 'dev',
     to: '/nera',
     idx: '02',
-    name: 'Nera',
+    name: 'Getnera',
     chip: 'In development',
     text: 'WhatsApp automation for businesses that lose customers to a slow reply. Answers every incoming message in seconds, runs follow-up sequences for anyone who goes quiet, and sends campaigns on Meta-approved templates over the official API. Built in two halves, inbound first.',
   },
@@ -82,7 +82,7 @@ export default function Products() {
                 <td><Link to="/gymdesk">Join the pilot</Link></td>
               </tr>
               <tr>
-                <td><strong>Nera</strong></td>
+                <td><strong>Getnera</strong></td>
                 <td>Any business taking enquiries on WhatsApp</td>
                 <td>Reply in seconds and follow up without fail</td>
                 <td>In development</td>

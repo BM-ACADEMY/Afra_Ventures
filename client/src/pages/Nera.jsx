@@ -12,12 +12,12 @@ export default function Nera() {
     <>
       <Seo
         file="nera.html"
-        title="WhatsApp Business Automation Software: Nera | Afra Ventures"
-        description="Nera is being built to answer WhatsApp enquiries in seconds and follow up on the official Business API, so leads don't go cold. Talk to us about it."
+        title="WhatsApp Business Automation Software: Getnera | Afra Ventures"
+        description="Getnera is being built to answer WhatsApp enquiries in seconds and follow up on the official Business API, so leads don't go cold. Talk to us about it."
         jsonLd={[
-          breadcrumb(["Products", "products.html"], ["Nera", "nera.html"]),
+          breadcrumb(["Products", "products.html"], ["Getnera", "nera.html"]),
           softwareApp({
-            name: "Nera",
+            name: "Getnera",
             file: "nera.html",
             category: "CommunicationApplication",
             description:
@@ -33,19 +33,19 @@ export default function Nera() {
               Product 02 ·{" "}
               <Chip stage="dev" style={{ marginLeft: '.2rem' }}>In development</Chip>
             </p>
-            <h1>Nera</h1>
+            <h1>Getnera</h1>
             <p className="lede">
               WhatsApp automation for businesses that lose customers to a slow reply. Every message
               answered in seconds, every enquiry followed up, every campaign sent on approved
               templates.
             </p>
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
-              <Link className="btn btn-primary" to="/contact?topic=nera">Talk to us about Nera</Link>
+              <Link className="btn btn-primary" to="/contact?topic=nera">Talk to us about Getnera</Link>
               {" "}
               <a className="btn btn-ghost" href="#what-it-is">How it works</a>
             </div>
             <p className="small muted" style={{ marginTop: '.5rem' }}>
-              Nera is not open for general sale yet. This page exists so you can see where it is
+              Getnera is not open for general sale yet. This page exists so you can see where it is
               going and tell us if we have the problem wrong.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function Nera() {
         <div className="grid grid-2" style={{ alignItems: 'start' }}>
           <div className="prose">
             <p>
-              Nera connects to your business WhatsApp number and does two jobs. Inbound, it
+              Getnera connects to your business WhatsApp number and does two jobs. Inbound, it
               answers every message that arrives — in seconds, at midnight, on a Sunday — using
               what it knows about your business, and keeps following up with people who went
               quiet. Outbound, it runs campaigns to your own customer lists on Meta-approved
@@ -102,7 +102,7 @@ export default function Nera() {
             </p>
             <p>
               A conversation can be handed to a person at any moment — by the customer asking, by
-              your staff taking over, or by a rule you set. Nera is there to make sure nobody
+              your staff taking over, or by a rule you set. Getnera is there to make sure nobody
               waits, not to keep humans out of the conversation.
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function Nera() {
               <tr>
                 <th scope="col">What goes wrong today</th>
                 <th scope="col">Why it happens</th>
-                <th scope="col">What Nera does about it</th>
+                <th scope="col">What Getnera does about it</th>
               </tr>
             </thead>
             <tbody>
@@ -256,7 +256,7 @@ export default function Nera() {
           <Card>
             <h4>The official channel, always</h4>
             <p>
-              Nera runs on the WhatsApp Business Cloud API with a verified business profile.
+              Getnera runs on the WhatsApp Business Cloud API with a verified business profile.
               Unofficial automation tools are cheaper and get numbers banned, which costs far more
               than the saving.
             </p>
@@ -312,7 +312,7 @@ export default function Nera() {
         </div>
         <Notice title="How we handle messaging rules.">
           <p>
-            Nera sends only to people who have opted in or have messaged you first, on templates
+            Getnera sends only to people who have opted in or have messaged you first, on templates
             Meta has approved, with opt-out honoured immediately and permanently. We will not
             build bulk sending to purchased or scraped lists. It gets numbers banned, it is
             against WhatsApp's own rules, and it does not work.
