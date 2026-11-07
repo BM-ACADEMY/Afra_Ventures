@@ -8,8 +8,6 @@ export default function Terms() {
     <>
       <Seo
         file="terms.html"
-        title="Website Terms of Use and Conditions | Afra Ventures"
-        description="The terms for using afraventures.in, covering accuracy of product information, permitted use, intellectual property and governing law. Read them here."
       />
       <Band>
         <div className="stack" style={{ maxWidth: '68ch' }}>

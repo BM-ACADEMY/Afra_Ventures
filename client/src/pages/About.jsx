@@ -11,8 +11,6 @@ export default function About() {
     <>
       <Seo
         file="about.html"
-        title="Women-Led Software Company in Puducherry | Afra Ventures"
-        description="A women-led software product company in Puducherry with a 12-person team that designs, builds and supports its own products. Meet the people behind it."
         jsonLd={[
           breadcrumb(["About", "about.html"]),
         ]}

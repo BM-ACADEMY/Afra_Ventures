@@ -37,8 +37,6 @@ export default function Home() {
     <>
       <Seo
         file="index.html"
-        title="Business Software Solutions in Puducherry | Afra Ventures"
-        description="Software that runs follow-ups, renewals and records for gyms, colleges and growing firms across Tamil Nadu and India. Tell us what breaks and we'll help."
         jsonLd={[
           website(),
           faqPage(FAQ),

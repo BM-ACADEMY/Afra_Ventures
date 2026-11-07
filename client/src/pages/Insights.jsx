@@ -10,8 +10,6 @@ export default function Insights() {
     <>
       <Seo
         file="insights.html"
-        title="Business Software Insights: Gyms, Colleges | Afra Ventures"
-        description="Practical notes on gym renewals, placement cell software and multi-brand bookkeeping, written for the people who run the work. Read the latest insights."
         jsonLd={[
           breadcrumb(["Insights", "insights.html"]),
         ]}
@@ -26,6 +24,36 @@ export default function Insights() {
           </p>
         </div>
         <div style={{ borderTop: '1px solid var(--rule)' }}>
+          <Link className="post-link" to="/whatsapp-business-app-vs-api">
+            <div className="stack-sm">
+              <span className="idx">7 Nov 2026</span>
+              {" "}
+              <Chip stage="dev">WhatsApp</Chip>
+            </div>
+            <div className="stack-sm">
+              <h3>WhatsApp Business app or the API: which one do your enquiries need?</h3>
+              <p className="small muted">
+                The free app is enough for many businesses. The signs you have outgrown it, what
+                the official API changes, and how Meta charges for it per message.
+              </p>
+            </div>
+          </Link>
+          {" "}
+          <Link className="post-link" to="/choosing-gym-management-software">
+            <div className="stack-sm">
+              <span className="idx">7 Nov 2026</span>
+              {" "}
+              <Chip stage="dev">Gyms</Chip>
+            </div>
+            <div className="stack-sm">
+              <h3>How to choose gym management software in India</h3>
+              <p className="small muted">
+                A ten-point checklist built around the three places gyms actually lose money,
+                plus the price questions to ask and how to run a fair two-week trial.
+              </p>
+            </div>
+          </Link>
+          {" "}
           <Link className="post-link" to="/gym-membership-renewals">
             <div className="stack-sm">
               <span className="idx">17 Sep 2026</span>

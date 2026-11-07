@@ -5,8 +5,6 @@ export default function NotFound() {
     <>
       <Seo
         file="404.html"
-        title="Page not found | Afra Ventures"
-        description="That page does not exist on afraventures.in."
         noindex
       />
       <Band>

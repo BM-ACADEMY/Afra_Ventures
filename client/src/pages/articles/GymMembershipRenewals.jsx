@@ -5,9 +5,7 @@ export default function GymMembershipRenewals() {
   return (
     <ArticleLayout
       file="gym-membership-renewals.html"
-      title="Gym Membership Renewals: Why Members Lapse | Afra Ventures"
       headline="Why gym memberships lapse quietly — and what to do about it"
-      description="Most gyms lose more to silent non-renewal than to cancellations. Learn where the leak starts and a five-step routine you can run from tomorrow. Read on."
       summary="Where gyms lose renewal revenue, and the follow-up routine that recovers it."
       crumb="Gym renewals"
       topic="Gyms"
