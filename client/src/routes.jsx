@@ -16,6 +16,8 @@ import Insights from './pages/Insights.jsx';
 import GymMembershipRenewals from './pages/articles/GymMembershipRenewals.jsx';
 import CollegePlacementSoftware from './pages/articles/CollegePlacementSoftware.jsx';
 import MultiBrandBookkeeping from './pages/articles/MultiBrandBookkeeping.jsx';
+import ChoosingGymSoftware from './pages/articles/ChoosingGymSoftware.jsx';
+import WhatsAppAppVsApi from './pages/articles/WhatsAppAppVsApi.jsx';
 import Contact from './pages/Contact.jsx';
 import Privacy from './pages/Privacy.jsx';
 import Terms from './pages/Terms.jsx';
@@ -44,6 +46,8 @@ const COMPONENTS = {
   'gym-membership-renewals.html': GymMembershipRenewals,
   'college-placement-software.html': CollegePlacementSoftware,
   'multi-brand-bookkeeping.html': MultiBrandBookkeeping,
+  'choosing-gym-management-software.html': ChoosingGymSoftware,
+  'whatsapp-business-app-vs-api.html': WhatsAppAppVsApi,
   'contact.html': Contact,
   'privacy.html': Privacy,
   'terms.html': Terms,

@@ -26,6 +26,8 @@ export const PAGES = [
   { path: '/gym-membership-renewals', file: 'gym-membership-renewals.html', priority: 0.5 },
   { path: '/college-placement-software', file: 'college-placement-software.html', priority: 0.5 },
   { path: '/multi-brand-bookkeeping', file: 'multi-brand-bookkeeping.html', priority: 0.5 },
+  { path: '/choosing-gym-management-software', file: 'choosing-gym-management-software.html', priority: 0.5 },
+  { path: '/whatsapp-business-app-vs-api', file: 'whatsapp-business-app-vs-api.html', priority: 0.5 },
   { path: '/contact', file: 'contact.html', priority: 0.8 },
   { path: '/privacy', file: 'privacy.html', priority: 0.3 },
   { path: '/terms', file: 'terms.html', priority: 0.3 },

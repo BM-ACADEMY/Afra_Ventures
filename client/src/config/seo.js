@@ -90,6 +90,16 @@ export const SEO = {
     description:
       "Running several lines of business under one company? Four changes so each brand's numbers report for themselves, every month. Read the full guide.",
   },
+  'choosing-gym-management-software.html': {
+    title: 'Choosing Gym Management Software in India | Afra Ventures',
+    description:
+      'What to check before buying gym management software in India: renewals, part payments, UPI, WhatsApp reminders and data export. Use the 10-point list.',
+  },
+  'whatsapp-business-app-vs-api.html': {
+    title: 'WhatsApp Business App vs API for Enquiries | Afra Ventures',
+    description:
+      'When the free WhatsApp Business app is enough, when you need the official API, and how Meta charges per message. Read before you switch your number.',
+  },
   '404.html': {
     title: 'Page not found | Afra Ventures',
     description: 'That page does not exist on afraventures.in.',
