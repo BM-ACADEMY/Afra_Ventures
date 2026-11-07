@@ -26,9 +26,9 @@ export const SEO = {
       'GymDesk tracks members, attendance and dues, and sends renewal reminders automatically so fewer members lapse. Now in beta. Apply for a free pilot.',
   },
   'nera.html': {
-    title: 'WhatsApp Business Automation Software: Nera | Afra Ventures',
+    title: 'WhatsApp Business Automation: Getnera | Afra Ventures',
     description:
-      "Nera is being built to answer WhatsApp enquiries in seconds and follow up on the official Business API, so leads don't go cold. Talk to us about it.",
+      "Getnera is being built to answer WhatsApp enquiries in seconds and follow up on the official Business API, so leads don't go cold. Talk to us about it.",
   },
   'velai-vaaippu.html': {
     title: 'Recruitment & College Placement Software | Afra Ventures',

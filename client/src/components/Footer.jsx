@@ -24,7 +24,7 @@ export default function Footer() {
             <h5>Products</h5>
             <ul>
               <li><Link to="/gymdesk">GymDesk</Link></li>
-              <li><Link to="/nera">Nera</Link></li>
+              <li><Link to="/nera">Getnera</Link></li>
               <li><Link to="/velai-vaaippu">Velai Vaaippu</Link></li>
               <li><Link to="/products">All products</Link></li>
             </ul>

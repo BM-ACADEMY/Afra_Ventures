@@ -7,7 +7,7 @@ const TOPICS = [
   ['gymdesk', 'GymDesk pilot'],
   ['colleges', 'College or placement cell'],
   ['hiring', 'Hiring and recruitment'],
-  ['nera', 'Nera — WhatsApp automation'],
+  ['nera', 'Getnera — WhatsApp automation'],
   ['custom', 'Custom software'],
   ['institutional', 'Institutional or public sector'],
   ['careers', 'A job with you'],

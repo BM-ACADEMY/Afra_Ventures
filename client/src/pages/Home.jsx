@@ -12,7 +12,7 @@ import { faqPage, website } from '../lib/jsonld.js';
 const FAQ = [
   {
     q: 'What does Afra Ventures do?',
-    a: 'We build software products. Three of them are ours — GymDesk for gym operations, Nera for WhatsApp automation, and Velai Vaaippu for jobs and campus placement. We also take on custom product engineering for businesses and institutions that need software built properly and kept running.',
+    a: 'We build software products. Three of them are ours — GymDesk for gym operations, Getnera for WhatsApp automation, and Velai Vaaippu for jobs and campus placement. We also take on custom product engineering for businesses and institutions that need software built properly and kept running.',
   },
   {
     q: 'Where is Afra Ventures based?',
@@ -160,7 +160,7 @@ export default function Home() {
           <Link className="ledger-row" to="/nera">
             <span className="idx">02</span>
             <div className="stack-sm" style={{ alignItems: 'flex-start' }}>
-              <h3>Nera</h3>
+              <h3>Getnera</h3>
               <Chip stage="dev">In development</Chip>
             </div>
             <p className="small muted">

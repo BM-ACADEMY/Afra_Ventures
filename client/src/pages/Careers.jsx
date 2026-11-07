@@ -69,7 +69,7 @@ export default function Careers() {
               <Chip stage="live">Open</Chip>
             </div>
             <p className="small muted">
-              React and Node, with real database sense. You will take a module of GymDesk or Nera
+              React and Node, with real database sense. You will take a module of GymDesk or Getnera
               end to end — schema, API, interface and the support questions that follow.
               Experience with messaging APIs or workflow automation is a bonus, not a requirement.
               Two years or more of shipping something people used.
