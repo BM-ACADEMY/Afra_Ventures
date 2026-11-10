@@ -163,7 +163,11 @@ export default function About() {
               <li>Take on custom software for businesses and institutions</li>
               <li>Run digital marketing, branding and web work for clients</li>
               <li>Deliver training, skill development and career services</li>
-              <li>Provide recruitment, staffing and campus placement services</li>
+              <li>
+                Provide recruitment, staffing and campus placement services, through our
+                recruitment brand{" "}
+                <a href="https://coretalents.in" target="_blank" rel="noopener noreferrer">CoreTalents</a>
+              </li>
             </ul>
           </div>
           <div className="stack">

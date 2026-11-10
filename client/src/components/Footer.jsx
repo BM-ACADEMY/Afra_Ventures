@@ -36,6 +36,11 @@ export default function Footer() {
               <li><Link to="/technology">How we build</Link></li>
               <li><Link to="/partners">Partners</Link></li>
               <li><Link to="/careers">Careers</Link></li>
+              <li>
+                <a href="https://coretalents.in" target="_blank" rel="noopener noreferrer">
+                  CoreTalents (recruitment)
+                </a>
+              </li>
               <li><Link to="/insights">Insights</Link></li>
             </ul>
           </div>
