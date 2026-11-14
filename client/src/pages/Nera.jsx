@@ -21,6 +21,7 @@ export default function Nera() {
             description:
               "WhatsApp automation platform: answers every incoming message in seconds from a business knowledge base, runs follow-up sequences for enquiries that go quiet, and sends opt-in campaigns on Meta-approved templates over the official WhatsApp Business Cloud API.",
             releaseNotes: "In development — inbound reply and follow-up underway, outbound campaigns next.",
+            sameAs: ["https://getnera.in/"],
           }),
         ]}
       />
@@ -40,9 +41,13 @@ export default function Nera() {
             <div className="btn-row" style={{ marginTop: '.5rem' }}>
               <Link className="btn btn-primary" to="/contact?topic=nera">Talk to us about Getnera</Link>
               {" "}
+              <a className="btn btn-ghost" href="https://getnera.in" target="_blank" rel="noopener noreferrer">Visit getnera.in</a>
+              {" "}
               <a className="btn btn-ghost" href="#what-it-is">How it works</a>
             </div>
             <p className="small muted" style={{ marginTop: '.5rem' }}>
+              Getnera has its own website at{" "}
+              <a href="https://getnera.in" target="_blank" rel="noopener noreferrer">getnera.in</a>.
               Getnera is not open for general sale yet. This page exists so you can see where it is
               going and tell us if we have the problem wrong.
             </p>

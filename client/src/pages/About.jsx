@@ -159,7 +159,10 @@ export default function About() {
           <div className="stack">
             <h4>We do</h4>
             <ul className="ticks">
-              <li>Build, license and operate our own SaaS products</li>
+              <li>
+                Build, license and operate our own SaaS products, including{" "}
+                <a href="https://getnera.in" target="_blank" rel="noopener noreferrer">Getnera</a>
+              </li>
               <li>Take on custom software for businesses and institutions</li>
               <li>Run digital marketing, branding and web work for clients</li>
               <li>Deliver training, skill development and career services</li>
@@ -183,7 +186,8 @@ export default function About() {
         <p className="small muted" style={{ maxWidth: '66ch' }}>
           The company's objects, as filed, also cover travel and tourism services, catering and
           hospitality, real estate agency and advisory, and management consultancy. Where those
-          lines are active they are operated as separate brands.
+          lines are active they are operated as separate brands: real estate runs as{" "}
+          <a href="https://theplotone.com" target="_blank" rel="noopener noreferrer">The Plot One</a>.
         </p>
       </Band>
       <CtaBand
