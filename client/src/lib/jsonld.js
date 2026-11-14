@@ -83,10 +83,11 @@ export const faqPage = items => ({
   })),
 });
 
-export const softwareApp = ({ name, file, category, description, releaseNotes }) => ({
+export const softwareApp = ({ name, file, category, description, releaseNotes, sameAs }) => ({
   ...ctx('SoftwareApplication'),
   name,
   url: pageUrl(file),
+  ...(sameAs ? { sameAs } : {}),
   applicationCategory: category,
   operatingSystem: 'Web browser',
   description,

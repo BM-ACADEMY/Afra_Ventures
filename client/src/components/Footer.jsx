@@ -41,6 +41,16 @@ export default function Footer() {
                   CoreTalents (recruitment)
                 </a>
               </li>
+              <li>
+                <a href="https://theplotone.com" target="_blank" rel="noopener noreferrer">
+                  The Plot One (real estate)
+                </a>
+              </li>
+              <li>
+                <a href="https://getnera.in" target="_blank" rel="noopener noreferrer">
+                  getnera.in
+                </a>
+              </li>
               <li><Link to="/insights">Insights</Link></li>
             </ul>
           </div>
