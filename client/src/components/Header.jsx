@@ -69,6 +69,8 @@ export default function Header() {
               {label}
             </NavLink>
           ))}
+          {/* Static page outside the React app, so a plain link, not NavLink. */}
+          <a href="/verify/">Verify</a>
         </nav>
         {/* Outside the nav: stays visible on phones, next to MENU. */}
         <NavLink to="/contact" end className={() => 'btn btn-primary masthead-cta'}>
