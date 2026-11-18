@@ -52,6 +52,7 @@ export default function Footer() {
                 </a>
               </li>
               <li><Link to="/insights">Insights</Link></li>
+              <li><a href="/verify/">Verify a certificate</a></li>
             </ul>
           </div>
           <div>
