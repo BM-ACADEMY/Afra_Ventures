@@ -27,7 +27,7 @@ export const outFile = file =>
 const htmlFiles = (dir = 'dist', rel = '') =>
   fs.readdirSync(dir, { withFileTypes: true }).flatMap(d => {
     const r = rel ? `${rel}/${d.name}` : d.name;
-    if (d.isDirectory()) return d.name === 'assets' ? [] : htmlFiles(path.join(dir, d.name), r);
+    if (d.isDirectory()) return d.name === 'assets'  || d.name === 'verify'? [] : htmlFiles(path.join(dir, d.name), r);
     return d.name.endsWith('.html') ? [r] : [];
   });
 
