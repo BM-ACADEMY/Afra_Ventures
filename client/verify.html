@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Verify Certificate | Afra Ventures Pvt Ltd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--navy2:#13305a;--line:#d9dfe8;--bg:#f5f7fa;--ok:#1a7f4b;--okbg:#e8f6ee;--bad:#b3261e;--badbg:#fdecea}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--navy);color:#fff;padding:22px 20px;text-align:center}
+.mark{font-family:'Tenor Sans',serif;letter-spacing:.32em;font-size:20px;line-height:1.25}
+.mark small{display:block;letter-spacing:.5em;font-size:11px;opacity:.75;margin-top:2px}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:36px 18px}
+h1{font-family:'Tenor Sans',serif;font-weight:400;font-size:26px;margin:0 0 8px;text-align:center}
+p.sub{margin:0 0 26px;text-align:center;color:#51627a;font-size:15px;line-height:1.5}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
+input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--line);border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
+input:focus{outline:2px solid var(--navy2);border-color:var(--navy2)}
+button{margin-top:14px;width:100%;font:inherit;font-weight:600;font-size:16px;padding:13px;border:0;border-radius:10px;background:var(--navy);color:#fff;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}
+.hint{font-size:12.5px;color:#6b7a90;margin-top:10px}
+#result{margin-top:22px}
+.banner{border-radius:12px;padding:14px 16px;font-weight:600;display:flex;gap:10px;align-items:center}
+.ok{background:var(--okbg);color:var(--ok)} .bad{background:var(--badbg);color:var(--bad)}
+.revoked{background:#fff4e0;color:#8a5a00}
+dl{margin:16px 0 0;display:grid;grid-template-columns:130px 1fr;gap:12px 14px;font-size:15px}
+dt{color:#6b7a90} dd{margin:0;font-weight:500;word-break:break-word}
+footer{text-align:center;font-size:12.5px;color:#6b7a90;padding:20px 18px 28px;line-height:1.6}
+</style>
+</head>
+<body>
+<header><div class="mark">AFRA<small>VENTURES</small></div></header>
+<main>
+<h1>Verify a Certificate</h1>
+<p class="sub">Enter the certificate number printed on an internship offer letter or certificate issued by Afra Ventures Pvt Ltd.</p>
+<form class="card" id="f" autocomplete="off">
+<label for="cid">Certificate number</label>
+<input id="cid" placeholder="AFV-INT-26-001-XXXX" spellcheck="false" autocapitalize="characters" required>
+<button id="btn" type="submit">Verify</button>
+<div class="hint">The number must be entered exactly as printed. Scanning the QR code on the document fills it in automatically.</div>
+<div id="result" aria-live="polite"></div>
+</form>
+</main>
+<footer>
+Afra Ventures Pvt Ltd · CIN U62011PY2026PTC009819<br>
+78 Lenin St, Kosapalayam, Puducherry 605013 · hello@afraventures.in
+</footer>
+<script>
+const DATA = {"0b7af1b073992dc16d9fb2fd705097d0c5971defc91fbfc0379d3dbeaf9b4877": {"s": "c+OYjH7zT0YmwnqLtwxvmQ==", "i": "fQhRXWI/RdsEpyig", "c": "iIg6k8puIOODP1TSLzDL3rh+1EkGzHHg4htTQ9v2sLE1o1IGkWlxQCEnuScOrHtsVAJBmJ3Phc5r/Hx419UqKcMaAfwKd2JPAlMpr5c/sqIftVPBOuQ/UwQtyPWVJyu2s+VGhtsXCgpNH8/9aLv0raNlTHJ1ILpthh8617EZWGkHsP3w+hOlcOT31RWJ7NQqKg=="}, "e7f2ee796e409c7f03b22f90da281941fb56db749425ec524f851d2a84ab5f52": {"s": "wg8eDNiKLOlzxTzpmSTuCg==", "i": "yyTmoqAZqcTuzhRn", "c": "/+Or60AxcvfwstiBjt4szbA+JLr5bjijS8eMjSYQSO4AD+bNkW7ONc1i7r9O2H66MDGW69rIuR8jOyOq7qT+NYR9OohEy91gjLTMzljYd/PWlZWMftO9x5RoXrhmAYTeaQi85H1bTGgbrOrIg7lYhyvwdLBCIxVXm3OoMYMx7FIP9SV4YNyfS+SWfpcuLhxDgg=="}, "c39daeac225833164b103fd88d0e59fcfc2172e9ae793345894b7b97b609c5d6": {"s": "DdUFqbqaQU8m17Jbfb+sJw==", "i": "JAMrmdtvgHXcprhW", "c": "QCye9LlYa6NKQVyjU4o6ZBFMONO/dqocu6Fskk3G1LptdmCH/Wq86pfCIe3OXd4kPdEWFWC5wHpHAVzakoLhBS934XFQBYHXQwx3Dg1dqZKb48pRqsDDQnAl8mVtBaIOjTUdEVf+KM5ECaVWHT/AjlV59aN0l0iIYLOXTYNHIdFhDAFCUXuv2GJD0g=="}, "c01ecb09606256dabfa41214afb561cb4b20646edd8d3e35eb82a1cb5562de0f": {"s": "EnRm7nTuZaUiKuVK8qMJbQ==", "i": "i54bfCtc+GyGV4Fr", "c": "QuKKHycMxGDwf+FLeTcgc5ILlYk8QMRgGN3n1fKh2VPzFLR744Z4BK6ax2n/Q/nSGvr8d9rSqxZNLgCEHinuedJiU0d9Szo08ZTO5uVk5RvDybDCYzy3CfmiSKkdyxCra4shnvH1nhLdRbI+Jm4TNpIltcPWWoQLG9P4KkyPXsygJM2fjNOjiVE4VL50ifaJbL++bdU2FFA="}, "b4bff3b2b5dee7297a0482f09fcaf726f0aed2de5af65cf993a9ceb6aeba90cb": {"s": "L54m7XhEqww34ZqEtd9rsA==", "i": "Uptk25FcURhCnSxC", "c": "3YNQnkYR1QpGMW9CgHB2tsEBDgHJFpbRpLRbSNm/NsIsWuWjOI+FS+7Fig9N54JiBpDJi8DfnKDdkBB7EHl3am5gGJ9Pe96TYrcm+9lfppJBShyN8a0UC1UG2K4PTwOOfib05yqGqa2WVDiTN/NF43iWLAtMk6ppOTGNccX56Gq0I9b6Hn9CHkeLw/L1NLH/Drupldofkw=="}, "c1a2988044590204597bea2da6f2656392866ad6e355c96534236e08f3bd9de3": {"s": "GJ1l1W6Qpl6nWBPq5nxCNw==", "i": "wsZpNdbJgwWffka3", "c": "levpJxR8EPegXNKuGpvTAMHNevP1dqaWOAmeH8mvawv7EaZBz/QA0kttnWmOdlohLsuK3XoPmOlL+l+ALnzLGkQQbBWzcWyHnGwQyjUBii5QjZNFlhy9vQizAu1RXgiLZtTk73hm3CcVsQsEmjukPafiImsTeZyf0vqy66tkULsYZrjpZtiEm2cG/mJq1PiWF/8cKzZgDIUayuaRNWii4A=="}, "7227cd3a77a062305b668d172f9c920086215c7d4345658528e66b31cea74aaf": {"s": "Vg2MsqssvLOiRRRqyk+PDQ==", "i": "SffeB6PpxVYY8I7n", "c": "2hzBEz/Ea03bDKGc6cNML3GW/1F/FTWD7/GedTDVTRi8MpPlh8YfuQsrw3QhH5722MQHChh7JOTHrATIk6eGAO3lmRQTVsXj42LnsHeFD7dzL1190xubFpP9hMaLsZPnL9RRp2G7JSwMMoMXGIPKFhiOydHyYjdFxDOFxRKadLmdnB6SIih3WtvrBbeAp9+z7h1AAI8MGSeWoX4VQST983Q="}, "352c9044ae2db81813dc45b141469779c6b16404b1e6baeea3104a5f891265fb": {"s": "JslSehBjgMlOI8+7ZnDBzg==", "i": "++OLhbhcXlIibzTG", "c": "UueSYQD1Tl22qVwrZ5u9XUGiJJlGP3UOznRzOic2290DJKplRXDBbudhhq9+E6CtgJG36Z/c5nyEaT+/mMuatUa+IwHULvFED7EHSmggmhDDtVSI73g0TM/4N7IZdtjjScDi6NSGvcT1Uo/2VLtZXv12C6/EZnnFmurtajMEewrdzwzSCqp2WvJPm0y1+MIjFmPvy67DC4T/hHiaKzePt+H4im0="}, "62295faa96c114b9a8e976e99939ba574a972c889d07c13d3f94e9d69df12fa6": {"s": "PYHAFd2EnEuivYo2yZNJ/A==", "i": "33KuEXGSbQ2FUh8/", "c": "cZ9D98nPWfaojMdJFzXwm6eV0uUbUORGrINws1uaSZcQL9Q1puTB8EUIJy5/0SWKsnvwad16cUQLoNuBU0jfOgmZKsUW+XlpZv6nDjz9Pj1KHsqANUPoHngE1h7l0FyJVrPssrtzR9SxhB7ugbMtAUmZb24i9S0XtV5Nb8BzMBnF4hUqvaYkbhHuzSG8WhlhvSuHbzcPUw2udzEUR1wv0z3luQ=="}, "fa57da6cfa1fb1a5356cced135cc6fc9cc76b42cea45dd58aa3999c177cbf1be": {"s": "0jSjmi+h1Vp8i61oGHuHMA==", "i": "/7mfBXJLLALYYUPM", "c": "P6nEmmBLuF80u6HBAUuVPvvV5sBg2D34BwY7ahsLkDK/oUvWjqsalIcoMHqoWu4OG0IhqD1hgVuXQqeNGyhHgsdMGBeNe1Ff8lG8TINeRt8/TiUausacsxfsg3/UavRFbVSUfh5fyDRCbqXSXI+E+70wRSj5UmVFrj70rzw/Q/9Cqm7viZD6K0TRX24rW8IQ2tk3Y8V/VQDqQx3qKtuCIJ0qKg=="}};
+const enc = new TextEncoder(), dec = new TextDecoder();
+const hex = b => [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+const unb64 = s => Uint8Array.from(atob(s), c=>c.charCodeAt(0));
+const norm = s => s.toUpperCase().replace(/\s+/g,'').replace(/[–—]/g,'-');
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+async function lookup(id){
+  const h = hex(await crypto.subtle.digest('SHA-256', enc.encode('afv:'+id)));
+  const rec = DATA[h];
+  if(!rec) return null;
+  try{
+    const base = await crypto.subtle.importKey('raw', enc.encode(id), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:unb64(rec.s), iterations:200000, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+    const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:unb64(rec.i)}, key, unb64(rec.c));
+    return JSON.parse(dec.decode(pt));
+  }catch(e){ return null; }
+}
+
+function render(r, id){
+  const box = document.getElementById('result');
+  if(!r){
+    box.innerHTML = '<div class="banner bad">✕ No record found for this number</div><div class="hint">Check the number and try again. If it still fails, write to hello@afraventures.in.</div>';
+    return;
+  }
+  const revoked = r.status && r.status.toLowerCase() !== 'valid';
+  const period = (r.start && r.end) ? esc(r.start)+' to '+esc(r.end) : 'To be confirmed';
+  box.innerHTML =
+   '<div class="banner '+(revoked?'revoked':'ok')+'">'+(revoked?'⚠ This certificate is not valid ('+esc(r.status)+')':'✓ Verified: genuine certificate issued by Afra Ventures Pvt Ltd')+'</div>'+
+   '<dl><dt>Certificate no.</dt><dd>'+esc(id)+'</dd>'+
+   '<dt>Name</dt><dd>'+esc(r.name)+'</dd>'+
+   '<dt>Role</dt><dd>'+esc(r.role)+'</dd>'+
+   '<dt>Division</dt><dd>'+esc(r.brand)+', a brand of Afra Ventures Pvt Ltd</dd>'+
+   '<dt>Period</dt><dd>'+period+'</dd>'+
+   '<dt>Issued on</dt><dd>'+esc(r.issued||'To be confirmed')+'</dd></dl>';
+}
+
+async function run(raw){
+  const id = norm(raw); if(!id) return;
+  const btn = document.getElementById('btn'); btn.disabled = true; btn.textContent = 'Checking…';
+  render(await lookup(id), id);
+  btn.disabled = false; btn.textContent = 'Verify';
+}
+document.getElementById('f').addEventListener('submit', e=>{ e.preventDefault(); run(document.getElementById('cid').value); });
+const q = new URLSearchParams(location.search).get('id');
+if(q){ document.getElementById('cid').value = q; run(q); }
+</script>
+</body>
+</html>
