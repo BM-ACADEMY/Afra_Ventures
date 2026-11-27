@@ -29,7 +29,7 @@ export default function Contact() {
           <EnquiryForm send="email" />
           <div className="stack-lg">
             <Panel head={["Direct", "Mon–Sat"]}>
-              <dl className="readout">
+              <dl className="readout readout-links">
                 <div>
                   <dt>Email</dt>
                   <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>

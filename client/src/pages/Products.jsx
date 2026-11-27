@@ -60,7 +60,7 @@ export default function Products() {
           <p className="eyebrow">Side by side</p>
           <h2>Which product is for you.</h2>
         </div>
-        <div className="tablewrap">
+        <div className="tablewrap table-stack">
           <table>
             <thead>
               <tr>
@@ -73,25 +73,25 @@ export default function Products() {
             </thead>
             <tbody>
               <tr>
-                <td><strong>GymDesk</strong></td>
-                <td>Gyms, fitness studios, small chains</td>
-                <td>Keep members and collect on time, automatically</td>
-                <td>Beta</td>
-                <td><Link to="/gymdesk">Join the pilot</Link></td>
+                <td data-label="Product"><strong>GymDesk</strong></td>
+                <td data-label="Built for">Gyms, fitness studios, small chains</td>
+                <td data-label="Core job">Keep members and collect on time, automatically</td>
+                <td data-label="Stage">Beta</td>
+                <td data-label="How to start"><Link to="/gymdesk">Join the pilot</Link></td>
               </tr>
               <tr>
-                <td><strong>Getnera</strong></td>
-                <td>Any business taking enquiries on WhatsApp</td>
-                <td>Reply in seconds and follow up without fail</td>
-                <td>In development</td>
-                <td><Link to="/nera">Follow the build</Link></td>
+                <td data-label="Product"><strong>Getnera</strong></td>
+                <td data-label="Built for">Any business taking enquiries on WhatsApp</td>
+                <td data-label="Core job">Reply in seconds and follow up without fail</td>
+                <td data-label="Stage">In development</td>
+                <td data-label="How to start"><Link to="/nera">Follow the build</Link></td>
               </tr>
               <tr>
-                <td><strong>Velai Vaaippu</strong></td>
-                <td>Job seekers, students, employers, college placement cells</td>
-                <td>Assess skills, fill openings, prove placement numbers</td>
-                <td>Live</td>
-                <td><Link to="/velai-vaaippu">Use it today</Link></td>
+                <td data-label="Product"><strong>Velai Vaaippu</strong></td>
+                <td data-label="Built for">Job seekers, students, employers, college placement cells</td>
+                <td data-label="Core job">Assess skills, fill openings, prove placement numbers</td>
+                <td data-label="Stage">Live</td>
+                <td data-label="How to start"><Link to="/velai-vaaippu">Use it today</Link></td>
               </tr>
             </tbody>
           </table>
