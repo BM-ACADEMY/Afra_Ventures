@@ -563,6 +563,21 @@ ul.ticks li strong { color: var(--ink); font-weight: 600; }
   padding: .55rem .7rem;
 }
 .field textarea { min-height: 110px; resize: vertical; }
+/* Phones: 16px text stops iOS Safari zooming in when a field is tapped, and
+   44px-high fields and buttons are easy to hit with a thumb. Enquiry forms only. */
+@media (max-width: 760px) {
+  form.card .field input[type="text"],
+  form.card .field input[type="email"],
+  form.card .field input[type="tel"],
+  form.card .field select,
+  form.card .field textarea { font-size: 1rem; min-height: 44px; }
+  form.card .field textarea { min-height: 120px; }
+  form.card button[type="submit"] { min-height: 44px; justify-content: center; }
+  /* Contact page email / phone / WhatsApp links: bigger tap area, same look. */
+  .readout-links dd a { display: inline-block; padding-block: .75rem; margin-block: -.75rem; }
+  /* Products page stage filter buttons */
+  #stagefilter .btn { min-height: 44px; }
+}
 
 .bignum {
   font-size: clamp(1.9rem, 1.2rem + 2.6vw, 2.6rem);
@@ -671,6 +686,24 @@ th {
 tr:last-child td { border-bottom: 0; }
 td { color: var(--ink-2); }
 td strong { color: var(--ink); }
+/* .table-stack: on phones each row becomes a small card with the column name
+   beside each value, so no column (like "How to start") is hidden off-screen. */
+@media (max-width: 600px) {
+  .table-stack table, .table-stack tbody, .table-stack tr, .table-stack td { display: block; }
+  .table-stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .table-stack tr { border-bottom: 1px solid var(--rule); padding-block: .4rem; }
+  .table-stack tr:last-child { border-bottom: 0; }
+  .table-stack td { display: grid; grid-template-columns: 7rem 1fr; gap: .75rem; border-bottom: 0; padding-block: .4rem; }
+  .table-stack td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .table-stack td a { display: inline-block; padding-block: .75rem; margin-block: -.75rem; }
+}
 
 /* ---------- notice ---------- */
 
