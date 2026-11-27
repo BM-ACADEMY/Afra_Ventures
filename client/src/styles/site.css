@@ -492,6 +492,10 @@ ul.ticks li strong { color: var(--ink); font-weight: 600; }
   .track { grid-template-columns: 1fr; }
   .track-step { border-left: 0; border-top: 1px solid var(--rule); }
   .track-step:first-child { border-top: 0; }
+  /* vertical indicator on phones */
+  .track-step { display: grid; grid-template-columns: 3px 1fr; column-gap: .9rem; }
+  .track-bar { grid-row: 1 / span 2; height: auto; margin: -.9rem 0 -1.1rem; }
+  .track-name, .track-note { grid-column: 2; }
 }
 
 /* ---------- accordion ---------- */
